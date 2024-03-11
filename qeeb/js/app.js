@@ -4379,7 +4379,7 @@
     }
     const da = new DynamicAdapt("max");
     da.init();
-    document.querySelector(".button-play__inner-circle").innerHTML = "NFT Marketplace Qeeb".split("").map(((e, i) => `<span style="--rot:${i * 17}deg">${e}</span>`)).join("");
+    document.querySelector(".play-button__inner-circle").innerHTML = "NFT Marketplace Qeeb".split("").map(((e, i) => `<span style="--rot:${i * 17}deg">${e}</span>`)).join("");
     window["FLS"] = true;
     isWebp();
     addLoadedClass();

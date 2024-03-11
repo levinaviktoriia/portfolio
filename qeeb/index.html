@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20240311223045">
+	<link rel="stylesheet" href="css/style.min.css?_v=20240311231437">
 	<link rel="shortcut icon" href="img/favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,7 +17,7 @@
 		<header class="header">
 			<div class="header__container">
 				<div class="header__logo">
-					<img src="img\logo.svg" alt="Logo">
+					<img src="img/logo.svg" alt="Logo">
 				</div>
 				<div class="header__menu menu">
 					<nav class="menu__body">
@@ -72,9 +72,9 @@
 					<div data-da=".hero__bottom,1050,1" class="hero__interactive">
 						<div class="hero__image">
 							<picture><source srcset="img/hero/hero-img.webp" type="image/webp"><img src="img/hero/hero-img.jpg" alt=""></picture>
-							<button class="hero__button-play button-play _icon-play">
-								<div class="button-play__box">
-									<div class="button-play__inner-circle "></div>
+							<button class="hero__button-play play-button _icon-play">
+								<div class="play-button__box">
+									<div class="play-button__inner-circle "></div>
 								</div>
 							</button>
 						</div>
@@ -348,7 +348,7 @@
 						<!-- Частина слайдера, що рухається -->
 						<div class="tranding__wrapper swiper-wrapper">
 							<!-- Слайд -->
-							<article class="tranding__slide slide-tranding swiper-slide" href="#">
+							<article class="tranding__slide slide-tranding swiper-slide">
 								<a class="slide-tranding__link-image" href="#"><picture><source srcset="img/tranding/image-01.webp" type="image/webp"><img src="img/tranding/image-01.jpg" alt="Player"></picture></a>
 								<div class="slide-tranding__content">
 									<h5 class="slide-tranding__title">
@@ -367,7 +367,7 @@
 									</div>
 								</div>
 							</article>
-							<article class="tranding__slide slide-tranding swiper-slide" href="#">
+							<article class="tranding__slide slide-tranding swiper-slide">
 								<a class="slide-tranding__link-image" href="#"><picture><source srcset="img/tranding/image-02.webp" type="image/webp"><img src="img/tranding/image-02.jpg" alt="Player"></picture></a>
 								<div class="slide-tranding__content">
 									<h5 class="slide-tranding__title">
@@ -386,7 +386,7 @@
 									</div>
 								</div>
 							</article>
-							<article class="tranding__slide slide-tranding swiper-slide" href="#">
+							<article class="tranding__slide slide-tranding swiper-slide">
 								<a class="slide-tranding__link-image" href="#"><picture><source srcset="img/tranding/image-03.webp" type="image/webp"><img src="img/tranding/image-03.jpg" alt="Player"></picture></a>
 								<div class="slide-tranding__content">
 									<h5 class="slide-tranding__title">
@@ -405,7 +405,7 @@
 									</div>
 								</div>
 							</article>
-							<article class="tranding__slide slide-tranding swiper-slide" href="#">
+							<article class="tranding__slide slide-tranding swiper-slide">
 								<a class="slide-tranding__link-image" href="#"><picture><source srcset="img/tranding/image-04.webp" type="image/webp"><img src="img/tranding/image-04.jpg" alt="Player"></picture></a>
 								<div class="slide-tranding__content">
 									<h5 class="slide-tranding__title">
@@ -424,7 +424,7 @@
 									</div>
 								</div>
 							</article>
-							<article class="tranding__slide slide-tranding swiper-slide" href="#">
+							<article class="tranding__slide slide-tranding swiper-slide">
 								<a class="slide-tranding__link-image" href="#"><picture><source srcset="img/tranding/image-02.webp" type="image/webp"><img src="img/tranding/image-02.jpg" alt="Player"></picture></a>
 								<div class="slide-tranding__content">
 									<h5 class="slide-tranding__title">
@@ -514,35 +514,35 @@
 			<div class="footer__container">
 				<div class="footer__top">
 					<a href="#" class="footer__link-logo">
-						<img src="img\logo.svg" alt="Logo">
+						<img src="img/logo.svg" alt="Logo">
 					</a>
 					<div class="footer__menu menu-footer" data-spollers="768,max">
 						<details class="menu-footer__column">
 							<summary class="menu-footer__title" data-spoller-close>
 								Quick Links
 							</summary>
-							<div class="menu-footer__list">
+							<ul class="menu-footer__list">
 								<li><a class="menu-footer__link" href="#">About us</a></li>
 								<li><a class="menu-footer__link" href="#">Services</a></li>
 								<li><a class="menu-footer__link" href="#">API</a></li>
 								<li><a class="menu-footer__link" href="#">Become a Partner</a></li>
 								<li><a class="menu-footer__link" href="#">Branding</a></li>
 								<li><a class="menu-footer__link" href="#">Career</a></li>
-							</div>
+							</ul>
 						</details>
 						<details class="menu-footer__column">
 							<summary class="menu-footer__title" data-spoller-close>
 								Marketplace
 							</summary>
-							<div class="menu-footer__list">
+							<ul class="menu-footer__list">
 								<li><a class="menu-footer__link" href="#">Explore</a></li>
 								<li><a class="menu-footer__link" href="#">How it works</a></li>
 								<li><a class="menu-footer__link" href="#">Insights</a></li>
 								<li><a class="menu-footer__link" href="#">Help Center</a></li>
-							</div>
+							</ul>
 						</details>
 					</div>
-					<form class="footer__subscription-form subscription-form" action="">
+					<form class="footer__subscription-form subscription-form" action="#">
 						<h4 class="subscription-form__title">Sign Up to Receive Updates Services</h4>
 						<div class="subscription-form__box-input">
 							<input class="subscription-form__input" data-validate data-required="email" type="text" name="form[]" placeholder="youremail@gmail.com" data-error="Invalid email entered">
@@ -584,7 +584,7 @@
 			</div>
 		</footer>
 	</div>
-	<script src="js/app.min.js?_v=20240311223045"></script>
+	<script src="js/app.min.js?_v=20240311231437"></script>
 </body>
 
 </html>

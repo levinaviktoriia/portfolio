@@ -628,11 +628,11 @@ body {
   letter-spacing: .0125rem;
   color: #818698
 }
-.button-play {
+.play-button {
   border-radius: 50%;
   overflow: hidden
 }
-.button-play::before {
+.play-button::before {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -640,13 +640,13 @@ body {
   -webkit-transform: translate(-50%,-50%);
   transform: translate(-50%,-50%)
 }
-.button-play__box {
+.play-button__box {
   -webkit-animation-play-state: running;
   animation-play-state: running;
   -webkit-animation: rotate 30s linear infinite forwards;
   animation: rotate 30s linear infinite forwards
 }
-.button-play__inner-circle {
+.play-button__inner-circle {
   -webkit-backdrop-filter: blur(.9375rem);
   backdrop-filter: blur(.9375rem);
   background-color: rgba(129,134,152,.2);
@@ -660,10 +660,10 @@ body {
   line-height: 200px;
   font-size: 1rem
 }
-.button-play__inner-circle::before {
+.play-button__inner-circle::before {
   font-size: 1.4375rem
 }
-.button-play__inner-circle span {
+.play-button__inner-circle span {
   display: inline-block;
   width: 0;
   position: absolute;
@@ -927,7 +927,6 @@ body {
   align-items: start
 }
 .item-insights__image {
-  background-repeat: 3.125rem;
   height: 19.5rem;
   width: 100%;
   overflow: hidden;
@@ -2271,7 +2270,7 @@ body {
   .social__link:hover {
     color: #52ffe0
   }
-  .button-play__box:hover {
+  .play-button__box:hover {
     -webkit-animation-play-state: paused;
     animation-play-state: paused
   }
