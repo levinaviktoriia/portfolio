@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" type="image/x-icon" href="img/rootpage/favicon-v.ico">
+	<title>Online store «Euphoria»</title>
+</head>
+
+<body>
+	<div class="wrapper">
+		<div class="rootpage">
+			<div class="rootpage__body">
+				<h1>Online store «Euphoria»</h1>
+				<section>
+					<h2>Main pages:</h2>
+					<ol class="rootpage__list">
+						<li><a target="_blank" href="home.html">Home Page</a></li>
+						<li><a target="_blank" href="pages\catalog.html">Catalog</a></li>
+						<li><a target="_blank" href="pages\product.html">Product detail</a></li>
+						<li><a target="_blank" href="pages\cart\cart.html">Cart Page</a></li>
+						<li><a target="_blank" href="pages\cart\cart-empty.html">Empty Cart</a></li>
+						<li><a target="_blank" href="pages\cart\check-out.html">Check Out</a></li>
+						<li><a target="_blank" href="pages\cart\order-confirmed.html">Confirmed Order</a></li>
+						<li><a target="_blank" href="404.html">404</a></li>
+					</ol>
+				</section>
+				<section>
+					<h2>Account:</h2>
+					<ol class="rootpage__list">
+						<li><a target="_blank" href="account\my-info\info.html">My Info</a></li>
+						<li><a target="_blank" href="account\my-info\add-address.html">Add Delivery Address</a></li>
+						<li><a target="_blank" href="account\wishlist\wishlist.html">Wishlist</a></li>
+						<li><a target="_blank" href="account\wishlist\wishlist-empty.html">Empty Wishlist</a></li>
+						<li><a target="_blank" href="account\my-orders\orders.html">My Orders</a></li>
+						<li><a target="_blank" href="account\my-orders\order-details.html">Order Details</a></li>
+					</ol>
+				</section>
+				<section>
+					<h2>Authorization Pages:</h2>
+					<ol class="rootpage__list">
+						<li><a target="_blank" href="auth\sing-in-page.html">Sign In Page</a></li>
+						<li><a target="_blank" href="auth\sing-up.html">Sign Up</a></li>
+						<li><a target="_blank" href="auth\reset-your-password.html">Reset Your Password</a></li>
+						<li><a target="_blank" href="auth\create-new-password.html">Create New Password</a></li>
+						<li><a target="_blank" href="auth\check-email.html">Check Email</a></li>
+						<li><a target="_blank" href="auth\verification.html">Verification</a></li>
+					</ol>
+				</section>
+			</div>
+			<div class="rootpage__footer">
+				<svg class="rootpage__bg-footer" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+					<path fill="#D3A07D" fill-opacity="1"
+						d="M0,192L80,213.3C160,235,320,277,480,256C640,235,800,149,960,96C1120,43,1280,21,1360,10.7L1440,0L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z">
+					</path>
+				</svg>
+				<div class="rootpage__body-footer">
+					<div class="rootpage__block-footer">
+						<h3>Contacts:</h3>
+						<ul class="rootpage__contacts">
+							<li>
+								<a href="https://t.me/victoria_llll" aria-label="Link to my Telegram">
+									<img src="img/rootpage/telegram.svg" alt="Icon Telegram">
+								</a>
+							</li>
+						</ul>
+					</div>
+					<div class="rootpage__block-footer">
+						<h3>Email:</h3>
+						<a class="rootpage__email-link"
+							href="mailto:levinaviktoria001@gmail.com">levinaviktoria001@gmail.com</a>
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+	</div>
+</body>
+<style>
+	@charset "UTF-8";
+	*,
+	*::before,
+	*::after {
+		padding: 0px;
+		margin: 0px;
+		border: 0px;
+		box-sizing: border-box;
+	}
+	html,
+	body {
+		height: 100%;
+		margin: 0;
+		padding: 0;
+		min-width: 320px;
+		width: 100%;
+	}
+	body {
+		font-family: Montserrat;
+		line-height: 1.2;
+		font-size: 1rem;
+		color: #382C23;
+		background-color: #FEFBF7;
+	}
+
+	ul,
+	ol {
+		list-style: none;
+	}
+
+	a {
+		text-decoration: none;
+		color: inherit;
+		display: inline-block;
+	}
+
+	.wrapper {
+		width: 100%;
+		min-height: 100%;
+		overflow: hidden;
+	}
+	.rootpage {
+		display: flex;
+		flex-direction: column;
+		overflow: auto;
+		width: 100%;
+		height: 100%;
+		position: fixed;
+	}
+	.rootpage__body {
+		flex-grow: 1;
+		position: relative;
+		z-index: 5;
+	}
+	.rootpage__body,
+	.rootpage__body-footer {
+		padding: 30px;
+	}
+	.rootpage__header {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+		column-gap: 30px;
+	}
+	h1 {
+		font-size: 1.875rem;
+	}
+	h1 {
+		margin-bottom: 30px;
+	}
+	section:not(:last-child) {
+		margin-bottom: 20px;
+	}
+	h2 {
+		margin-bottom: 15px;
+		font-size: 1.25rem;
+	}
+	.rootpage__list {
+		display: grid;
+		row-gap: 7px;
+		counter-reset: item;
+	}
+	.rootpage__list li::before {
+		content: counter(item) ".";
+		counter-increment: item;
+		margin-right: 10px;
+	}
+	.rootpage__list a {
+		text-decoration: underline;
+		text-decoration-color: transparent;
+		transition: text-decoration-color 0.2s;
+	}
+	.rootpage__list li:hover a {
+		text-decoration-color: #413b3b;
+	}
+	.rootpage__footer {
+		position: relative;
+	}
+	.rootpage__bg-footer {
+		position: absolute;
+		width: 100%;
+		height: auto;
+		bottom: 0;
+		right: 0;
+		min-width: 900px;
+	}
+
+	.rootpage__body-footer {
+		position: relative;
+		z-index: 4;
+		text-align: right;
+
+	}
+	.rootpage__body-footer::before {
+		content: '';
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		width: 200px;
+		aspect-ratio: 1112/1203;
+		z-index: 3;
+		background: url('img/rootpage/vector.svg') 0 0 / contain no-repeat;
+	}
+	.rootpage__block-footer:not(:last-child) {
+		margin-bottom: 15px;
+	}
+	h3 {
+		margin-bottom: 5px;
+	}
+	.rootpage__email-link {
+		text-decoration: underline;
+		text-decoration-color: transparent;
+		transition: text-decoration-color 0.2s;
+	}
+	.rootpage__email-link:hover {
+		text-decoration-color: #413b3b;
+	}
+	.rootpage__contacts {
+		display: flex;
+		column-gap: 10px;
+		justify-content: flex-end;
+	}
+	.rootpage__contacts img {
+		height: 35px;
+		width: 35px;
+	}
+	@media (max-width: 479.98px) {
+		.rootpage__body,
+		.rootpage__body-footer {
+			padding: 15px;
+		}
+		h1 {
+			align-self: center;
+		}
+		.rootpage__language {
+			flex-direction: column;
+			justify-content: center;
+			row-gap: 5px;
+			padding: 10px 7px;
+		}
+		.rootpage__item-language:not(:last-child) {
+			padding-right: 0px;
+			padding-bottom: 5px;
+		}
+		.rootpage__item-language:not(:last-child)::after {
+			right: 0;
+			top: 100%;
+			width: 100%;
+			height: 1px;
+		}
+		.rootpage__body-footer::before {
+			width: 150px;
+			left: -20px;
+			bottom: 23px;
+		}
+	}
+	.rootpage__body {
+		padding-top: 30px;
+		padding-bottom: 50px;
+	}
+</style>
+
+</html>

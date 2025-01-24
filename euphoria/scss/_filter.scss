@@ -1,0 +1,277 @@
+%filter-padding{
+	@include adaptiveValue("padding-left", 30, 15);
+	@include adaptiveValue("padding-right", 30, 15);
+}
+
+.filter {
+	border-bottom: toRem(1) solid rgba(190, 188, 189, 0.4);
+	border-left: toRem(1) solid rgba(190, 188, 189, 0.4);
+	border-right: toRem(1) solid rgba(190, 188, 189, 0.4);
+	border-radius: toRem(0) toRem(0) toRem(2) toRem(2);
+	// .filter__spoiler
+	&__spoiler {}
+	// .filter__header
+	&__header {
+		list-style: none;
+	}
+	// .filter__title
+	&__title {}
+	// .filter__body
+	&__body {}
+	// .filter__section
+	&__section {}
+}
+.title-filter {
+	._spoiler-active &{
+		.title-filter__button:not(.title-filter__button--main) {
+			&::before{
+				transform: rotateX(180deg);
+			}
+		}
+	}
+	// .title-filter__button
+	&__button {
+		text-transform: capitalize;
+		@include adaptiveValue("font-size", 22, 20);
+		line-height: 1.18; /* 26/22 */
+		font-weight: 600;
+		display: flex;
+		flex-direction: row-reverse;
+		justify-content: space-between;
+		align-items: center;
+		column-gap: toRem(10);
+		@include adaptiveValue("padding-top", 20, 10);
+		@include adaptiveValue("padding-bottom", 19, 9);
+		@extend %filter-padding;
+		width: 100%;
+		transition: color .2s;
+		&::before{
+			font-size: toRem(11);
+			font-weight: 400;
+			transition: transform .4s;
+		}
+		// .title-filter__button--main
+		&--main{
+			&::before{
+				font-size: toRem(16.5);
+			}
+			@media (min-width:toEm(799.98)){
+				cursor: auto;
+			}
+		}
+		
+		@media (max-width:toEm($tablet)){
+			cursor: pointer;
+			@media (any-hover: hover){
+				&:hover{
+					color: $grayColor;
+				}
+			}
+		}
+	}
+
+}
+.section-filter {
+	&:not(:last-child) {
+		border-bottom: toRem(1) solid rgba(190, 188, 189, 0.4);
+	}
+	// .section-filter--spoiler
+	&--spoiler{}
+	// .section-filter__header
+	&__header{
+		list-style: none;
+	}
+	// .section-filter__body
+	&__body {
+		@extend %filter-padding;
+		@include adaptiveValue("padding-top", 40, 20);
+		@include adaptiveValue("padding-bottom", 39, 19);
+		border-top: toRem(1) solid rgba(190, 188, 189, 0.4);
+	}
+	// .section-filter__clothing-type
+	&__clothing-type {}
+	// .section-filter__title
+	&__title {}
+	// .section-filter__price
+	&__price {}
+	// .section-filter__colors
+	&__colors {}
+	// .section-filter__size
+	&__size {}
+	// .section-filter__style
+	&__style{}
+}
+.type-filter{
+	display: grid;
+	@include adaptiveValue("row-gap", 18, 10);
+	// .clothing-type-filter__item
+	&__item {
+		cursor: pointer;
+		font-weight: 600;
+		line-height: 1.18;
+		span{
+			display: flex;
+			flex-direction: row-reverse;
+			justify-content: space-between;
+			align-items: center;
+			row-gap: toRem(10);
+			transition: all .2s;
+			&::before{
+				font-size: toRem(11);
+				font-weight: 400;
+				transition: all .2s;
+			}
+		}
+		@media (any-hover: hover){
+			&:hover{
+				span{
+					color: $grayColor;
+				}
+			}
+		}
+		input:checked ~ span{
+			color: $violetColor;
+		}
+	}
+	// .clothing-type-filter__input
+	&__input {
+		@extend %delete-style-for-checkbox;
+	}
+}
+.price-filter {
+	padding-top: toRem(10);
+	// .price-filter__range
+	&__range {
+		&:not(:last-child) {
+			margin-bottom: toRem(32);
+		}
+	}
+	// .price-filter__inputs
+	&__inputs {
+		display: flex;
+		column-gap: toRem(30);
+		justify-content: center;
+		@media (min-width: toEm(799.98)){
+			@include adaptiveValue("column-gap", 30, 10, 2, $containerWidth, 799.98);
+		}
+	}
+	// .price-filter__input
+	&__input {
+		flex-basis: toRem(97);
+		min-width: toRem(52);
+		text-align: center;
+		color: $grayFilterColor;
+		font-weight: 500;
+		line-height: 1.18;
+		padding: toRem(7) toRem(10) toRem(6);
+		border: toRem(1) solid rgba(190, 188, 189, 0.8);
+		border-radius: toRem(8);
+		&:focus{
+			color: $grayColor;
+			outline: toRem(2) solid $grayColor;
+		}
+	}
+}
+.colors-filter {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	@include adaptiveValue("row-gap", 18, 10);
+	column-gap: toRem(8);
+	@media (min-width: toEm(799.98)) and (max-width: toEm(1200)){
+		grid-template-columns: repeat(3, 1fr);
+	}
+	// .colors-filter__item
+	&__item {
+		cursor: pointer;
+		font-size: toRem(14);
+		line-height: 1.21; 
+		font-weight: 600;
+		span{
+			display: grid;
+			justify-items: center;
+			@include adaptiveValue("row-gap", 18, 8);
+			transition: all 0.2s;
+			&::before{
+				content: '';
+				width: toRem(37);
+				aspect-ratio: 1;
+				background-color: var(--color);
+				border-radius: toRem(12);
+				transition: all 0.3s;
+			}
+		}
+		@media (any-hover: hover){
+			&:hover{
+				span{
+					color: $grayColor;
+					&::before{
+						scale: 1.1;
+					}
+				}
+			}
+		}	
+		input:checked ~ span {
+			color: $grayColor; 
+			&::before{
+				scale: 0.9;
+				outline: toRem(1.5) solid $grayColor;
+			}
+		}
+		input:focus-visible ~ span {
+			border-radius: toRem(4);
+			outline: toRem(1) solid $grayColor; 
+		}
+	}	
+	// .colors-filter__input
+	&__input {
+		@extend %delete-style-for-checkbox;
+	}
+}
+.size-filter {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	@include adaptiveValue("gap", 18, 10);
+	@media (min-width: toRem(479.98)) and (max-width: toEm(799.98)){
+		grid-template-columns: repeat(4, 1fr);
+	}
+	// .size-filter__item
+	&__item {
+		cursor: pointer;
+		font-size: toRem(14);
+		line-height: 1.21; 
+		font-weight: 600;
+		span{
+			display: grid;
+			justify-items: center;
+			padding: toRem(7)	toRem(5) toRem(6);
+			text-transform: uppercase;
+			border: toRem(1) solid rgba(190, 188, 189, 0.8);
+			border-radius: toRem(8);
+			transition: all 0.3s;
+		}
+		@media (any-hover: hover){
+			&:hover{
+				span{
+					color: $grayColor;
+					background-color: $lightColor;
+					border: toRem(1) solid $grayColor;
+				}
+			}
+		}
+		input:checked ~ span{
+			color: $whiteColor;
+			background-color: $violetColor;
+			border: toRem(1) solid $grayColor;
+		}
+		input:focus-visible ~ span{
+			color: $grayColor;
+			background-color: $lightColor;
+			outline: 2px solid $grayColor
+		}
+	}
+	// .size-filter__input
+	&__input {
+		@extend %delete-style-for-checkbox;
+	}
+}
+

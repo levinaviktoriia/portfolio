@@ -1,0 +1,289 @@
+// не делаем title-footer отдельным бэм-блоком(компонентом), т.к. это в footer!
+%title-footer{
+	line-height: 1.2;
+	font-weight: 700;
+	@include adaptiveValue("font-size", 28.5, 24);
+}
+%item-footer{
+	font-size: toRem(18);
+	line-height: 1.2;
+	&:not(:last-child) {
+		@include adaptiveValue("margin-bottom", 23, 5);
+	}
+}
+%footer-padding{
+	@include adaptiveValue("padding-right", 85, 0, 0, $containerWidth, $mobile);
+	@include adaptiveValue("padding-left", 85, 0, 0, $containerWidth, $mobile);
+}
+
+.footer {
+	background-color: $grayColor;
+	color: $lightColor;
+	@include adaptiveValue("padding-top", 74, 30);
+	@include adaptiveValue("padding-bottom", 59, 30);
+	// .footer__container
+	&__container {
+		>*{
+			&:not(:last-child) {
+				@include adaptiveValue("margin-bottom", 40, 20);
+			}
+			&:first-child{
+				margin-bottom: toRem(15);
+			}
+		}
+	}
+	// .footer__body
+	&__body {
+		@extend %footer-padding;
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+		column-gap: 6%;
+		row-gap: toRem(15);
+		flex-wrap: wrap-reverse;
+	}
+	// .footer__social
+	&__social {
+		flex: 1 1 47%;
+		@media (max-width: toEm(500)){
+			flex-basis: 100%;
+		}
+	}
+	// .footer__apps
+	&__apps {
+		flex: 0 1 toRem(394);
+		@media (max-width:toEm($pc)){
+			flex: 0 1 47%;
+		}
+		@media (max-width: toEm(550)){
+			flex-basis: 100%;
+		}
+	}
+
+	// .footer__category
+	// &__category {}
+
+	// .footer__copyright
+	&__copyright {
+		@extend %footer-padding;
+		line-height: 1.2;
+		text-align: center;
+		@media (min-width:toEm($mobile)){
+			font-weight: 700;
+			font-size: toRem(18);
+		}
+	}
+}
+.menu-footer {
+	display: flex;
+	flex-direction: column;
+	row-gap: toRem(12);
+	
+	@media (min-width: toEm(551)){
+		flex-wrap: wrap;
+		flex-direction: row;
+		justify-content: space-between;
+		@include adaptiveValue("padding-right", 85, 0, 0, $containerWidth, $mobile);
+		@include adaptiveValue("padding-left", 85, 0, 0, $containerWidth, $mobile);
+		@include adaptiveValue("row-gap", 40, 20, 0, $mobile, 551);
+		@include adaptiveValue("column-gap", 30, 20);
+	}
+	
+	// .menu-footer__column
+	&__column {
+		@media (min-width: toEm(551)){
+			flex: 1 0 toRem(155);  
+		}
+		// .menu-footer__column--address
+		&--address{
+			& address{
+				font-style: normal;
+			}
+			@media (min-width: toEm(551)){
+				flex: 0 1 toRem(394);
+			}
+		}
+
+	}
+	// .menu-footer__title
+	&__title {
+		@extend %title-footer;
+		list-style: none; 
+		&:not(:last-child) {
+			@media (min-width: toEm(551)){
+				@include adaptiveValue("margin-bottom", 38, 10);
+			}
+		}
+	}
+	// .menu-footer__list
+	&__list {
+		@media (max-width: toEm(550)){
+			padding-top: toRem(10);
+		}
+
+	}
+	// .menu-footer__item
+	&__item {
+		@extend %item-footer;
+		// .menu-footer__item--location
+		&--location {
+			p{
+				@extend %item-footer;
+			}
+		}
+	}
+	// .menu-footer__link
+	&__link {
+		@include underline;
+		transition: text-decoration-color .2s;
+		@media (any-hover: hover){
+			.menu-footer__item:hover &{
+				text-decoration-color: $lightColor;
+			}
+		}
+	}
+}
+.social-footer {
+	display: flex;
+	flex-wrap: wrap;
+	column-gap: toRem(10);
+	row-gap: toRem(5);
+	@media (max-width: toEm(550)){
+		justify-content: center;
+	}
+	// .social-footer__item
+	&__item {
+		flex: 0 0 toRem(37);
+		border-radius: toRem(10);
+		overflow: hidden;
+		@media (max-width: toEm(400)){
+			flex-grow: 1;
+			max-width: toRem(85);
+		}
+	}
+	// .social-footer__link
+	&__link {
+		height: toRem(37);
+		width: 100%;
+		font-size: toRem(17);
+		color: $darkGrayColor;
+		background-color: $lightColor;
+		display: grid;
+		place-items: center;
+		transition: all .2s;
+		@media (any-hover: hover){
+			.social-footer__item:hover &{
+				background-color: #484d4d;
+				box-shadow: toRem(0) toRem(4) toRem(4) rgba(0, 0, 0, 0.25);
+				color: $lightColor;
+			}
+		}
+	}
+}
+
+.apps {
+	// .apps__title
+	&__title {
+		@extend %title-footer;
+		&:not(:last-child) {
+			@include adaptiveValue("margin-bottom", 30, 10);
+		}
+		@media (max-width: toEm(550)){
+			text-align: center;
+		}
+	}
+	// .apps__list
+	&__list {
+		display: flex;
+		column-gap: toRem(21);
+		row-gap: toRem(10);
+		flex-wrap: wrap;
+		@media (max-width: toEm(550)){
+			justify-content: center;
+			column-gap: toRem(10);
+		}
+	}
+	// .apps__item
+	&__item {
+		flex: 0 0 toRem(154);
+		@media (max-width: toEm(400)){
+			flex-basis: toRem(140);
+		}
+	}
+	// .apps__link
+	&__link {
+		width: 100%;
+		height: toRem(51);
+		display: grid;
+		place-items: center;
+		background-color: #404040;
+		border-radius: toRem(10);
+		transition: all .2s;
+		img{
+			aspect-ratio: 122/31;
+			width: 81.7%; 
+			height: 65.9%; 
+			object-fit: contain;
+		}
+		@media (any-hover: hover){
+			.apps__item:hover &{
+				background-color: #484d4d;
+				box-shadow: toRem(0) toRem(4) toRem(4) rgba(0, 0, 0, 0.25);
+			}
+		}
+	}
+}
+.popular-categories {
+	border-top: toRem(1) solid rgba(190, 188, 189, 0.4);
+	border-bottom: toRem(1) solid rgba(190, 188, 189, 0.4);
+	@include adaptiveValue("padding-top", 27, 10);
+	@include adaptiveValue("padding-bottom", 22, 10);
+	// .popular-categories__spollers
+	&__spollers {
+		@extend %footer-padding;
+	}
+	// .popular-categories__title
+	&__title {
+		@extend %title-footer;
+	}
+	// .popular-categories__body
+	&__body {
+		@include adaptiveValue("padding-top", 30, 10);
+	}
+	// .popular-categories__list
+	&__list {
+		li{
+			@extend %item-footer;
+			@media (any-hover: hover){
+				&:hover .popular-categories__link{
+					text-decoration-color: $lightColor;
+				}
+			}
+		}
+	}
+	// .popular-categories__link
+	&__link {
+		@include underline;
+		transition: text-decoration-color .2s;
+	}
+}
+
+.spoilers-title{
+	list-style: none; 
+	display: flex;
+	flex-direction: row-reverse;
+	justify-content: space-between;
+	align-items: start;
+	@include adaptiveValue("column-gap", 100, 30);
+	cursor: pointer;
+	&::before{
+		font-size: toRem(20);
+		transition: all .3s;
+		transform: translateY(toRem(5));
+	}
+	&._spoiler-active {
+		&::before {
+			transform: translateY(toRem(5)) rotateX(180deg);
+		}
+	}
+}

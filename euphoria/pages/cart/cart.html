@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="../../css/style.css" rel="stylesheet">
+	<link rel="shortcut icon" type="image/x-icon" href="../../img/favicon.ico">
+	<title>Cart | Euphoria</title>
+</head>
+
+<body>
+	<div class="wrapper">
+		<header class="header">
+			<div class="header__container">
+				<div class="header__logo">
+					<a href="#">
+						<img src="../../img/logo.svg" alt="Logo">
+					</a>
+				</div>
+				<div class="header__menu menu">
+					<nav class="menu__body">
+						<ul class="menu__list">
+							<li class="menu__item"><a href="#" class="menu__link">Shop</a></li>
+							<li class="menu__item"><a href="#" class="menu__link">Men</a></li>
+							<li class="menu__item"><a href="#" class="menu__link">Women</a></li>
+							<li class="menu__item"><a href="#" class="menu__link">Combos</a></li>
+							<li class="menu__item"><a href="#" class="menu__link">Joggers</a></li>
+						</ul>
+					</nav>
+				</div>
+				<form class="header__form form-search" action="">
+					<input class="form-search__input" type="text" name="form[]" placeholder="Search">
+					<button class="form-search__button _icon-search" type="submit" aria-label="Button to search"></button>
+				</form>
+				<div data-da=".menu,767.98,3" dropdown-list class="header__language-selector language-selector">
+					<button dropdown-list-btn class="language-selector__button">
+						ENG
+					</button>
+					<ul class="language-selector__list">
+						<li class="language-selector__item">
+							<a class="language-selector__link" href="#">SPA</a>
+						</li>
+						<li class="language-selector__item">
+							<a class="language-selector__link" href="#">ITA</a>
+						</li>
+					</ul>
+				</div>
+				<div class="header__action action-header">
+					<!-- action-header__link--active -->
+					<a class="action-header__link _icon-favourite" aria-label="Link to favorite products" href="#"></a>
+					<a class="action-header__link _icon-user" aria-label="Link to user profile" href="#"></a>
+					<a class="action-header__link action-header__link--active _icon-cart" aria-label="Link to bags" href="#"></a>
+				</div>
+				<button class="icon-menu" type="button" aria-label="Button to menu"><span></span></button>
+			</div>
+		</header>
+		<main class="cart-page">
+			<div class="cart-page__header cart-header">
+				<div class="cart-header__container">
+					<nav class="cart-header__breadcrumb breadcrumb" aria-label="Breadcrumb">
+						<ul class="breadcrumb__list">
+							<li class="breadcrumb__item _icon-chevron-right">
+								<a href="#">Home</a>
+							</li>
+							<li class="breadcrumb__item">
+								<span>Cart</span>
+							</li>
+						</ul>
+					</nav>
+					<div class="cart-header__info">
+						<p>Please fill in the fields below and click place order to complete your purchase!</p>
+						<p>Already registered? <a href="#">Please login here</a></p>
+					</div>
+				</div>
+			</div>
+			<form class="cart-page__form" action="#">
+				<div class="cart-page__table cart-table">
+					<div class="cart-table__header header-table-cart">
+						<div class="header-table-cart__container">
+							<div class="header-table-cart__title-header">Product Details</div>
+							<div class="header-table-cart__title-header">Price</div>
+							<div class="header-table-cart__title-header">Quantity</div>
+							<div class="header-table-cart__title-header">shipping</div>
+							<div class="header-table-cart__title-header">subtotal</div>
+							<div class="header-table-cart__title-header">action</div>
+						</div>
+					</div>
+					<div class="cart-table__items">
+						<div class="cart-table__container">
+							<div class="cart-table__item item-cart">
+								<div class="item-cart__details">
+									<a class="item-cart__link-img" href="#"><img src="../../img/products/thumbs/for-women/w-11.webp"
+											alt="Product image"></a>
+									<div class="item-cart__info">
+										<a class="item-cart__link-title" href="#">
+											<h4 class="item-cart__title">Blue Flower Print Crop Top</h4>
+										</a>
+										<div class="item-cart__feature item-cart__feature--color">Color : <span>Yellow</span></div>
+										<div class="item-cart__feature item-cart__feature--size">Size : <span>M</span></div>
+									</div>
+								</div>
+								<div class="item-cart__price">$29.00</div>
+								<div class="item-cart__quantity-control quantity-control">
+									<button class="quantity-control__button quantity-control__button--decrease"
+										aria-label="Decrease quantity">
+										&minus;
+									</button>
+									<span class="quantity-control__count">1</span>
+									<button class="quantity-control__button quantity-control__button--increase"
+										aria-label="Increase quantity">
+										&#43;
+									</button>
+								</div>
+								<div class="item-cart__price item-cart__price--shipping">FREE</div>
+								<div class="item-cart__price">$29.00</div>
+								<div class="item-cart__action">
+									<button class="item-cart__remove _icon-trash" type="button"
+										aria-label="Button to remove item from cart"></button>
+								</div>
+							</div>
+							<div class="cart-table__item item-cart">
+								<div class="item-cart__details">
+									<a class="item-cart__link-img" href="#"><img src="../../img/products/thumbs/for-women/w-03.webp"
+											alt="Product image"></a>
+									<div class="item-cart__info">
+										<a class="item-cart__link-title" href="#">
+											<h4 class="item-cart__title">Levender Hoodie</h4>
+										</a>
+										<div class="item-cart__feature item-cart__feature--color">Color : <span>Levender</span></div>
+										<div class="item-cart__feature item-cart__feature--size">Size : <span>XXL</span></div>
+									</div>
+								</div>
+								<div class="item-cart__price">$119.00</div>
+								<div class="item-cart__quantity-control quantity-control">
+									<button class="quantity-control__button quantity-control__button--decrease"
+										aria-label="Decrease quantity">
+										&minus;
+									</button>
+									<span class="quantity-control__count">2</span>
+									<button class="quantity-control__button quantity-control__button--increase"
+										aria-label="Increase quantity">
+										&#43;
+									</button>
+								</div>
+								<div class="item-cart__price item-cart__price--shipping">FREE</div>
+								<div class="item-cart__price">$238.00</div>
+								<div class="item-cart__action">
+									<button class="item-cart__remove _icon-trash" type="button"
+										aria-label="Button to remove item from cart"></button>
+								</div>
+							</div>
+							<div class="cart-table__item item-cart">
+								<div class="item-cart__details">
+									<a class="item-cart__link-img" href="#"><img src="../../img/products/thumbs/for-women/w-01.webp"
+											alt="Product image"></a>
+									<div class="item-cart__info">
+										<a class="item-cart__link-title" href="#">
+											<h4 class="item-cart__title">Black Sweatshirt</h4>
+										</a>
+										<div class="item-cart__feature item-cart__feature--color">Color : <span>Black</span></div>
+										<div class="item-cart__feature item-cart__feature--size">Size : <span>XXL</span></div>
+									</div>
+								</div>
+								<div class="item-cart__price">$123.00</div>
+								<div class="item-cart__quantity-control quantity-control">
+									<button class="quantity-control__button quantity-control__button--decrease"
+										aria-label="Decrease quantity">
+										&minus;
+									</button>
+									<span class="quantity-control__count">2</span>
+									<button class="quantity-control__button quantity-control__button--increase"
+										aria-label="Increase quantity">
+										&#43;
+									</button>
+								</div>
+								<div class="item-cart__price item-cart__price--shipping">$5.00</div>
+								<div class="item-cart__price">$251.00</div>
+								<div class="item-cart__action">
+									<button class="item-cart__remove _icon-trash" type="button"
+										aria-label="Button to remove item from cart"></button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="cart-page__summary cart-summary">
+					<div class="cart-summary__container">
+						<div class="cart-summary__discount cart-discount">
+							<div class="cart-discount__header">
+								<h5 class="cart-discount__title">Discount Codes</h5>
+								<div class="cart-discount__info">Enter your coupon code if you have one</div>
+							</div>
+							<div class="cart-discount__field">
+								<input class="cart-discount__input main-input" type="text">
+								<button class="cart-discount__inp-button button button--violet" type="submit">Apply Coupon</button>
+							</div>
+							<button class="cart-discount__btn button button--border" type="button">Continue Shopping</button>
+						</div>
+						<div class="cart-summary__prices cart-prices">
+							<div class="cart-prices__body">
+								<div class="cart-prices__row">
+									<div class="cart-prices__label">Sub Total</div>
+									<div class="cart-prices__price">$513.00</div>
+								</div>
+								<div class="cart-prices__row">
+									<div class="cart-prices__label">Shipping</div>
+									<div class="cart-prices__price">$5.00</div>
+								</div>
+								<div class="cart-prices__row cart-prices__row--total">
+									<div class="cart-prices__label">Grand Total</div>
+									<div class="cart-prices__price">$518.00</div>
+								</div>
+							</div>
+							<button class="cart-prices__button-order button button--violet">Proceed To Checkout</button>
+						</div>
+					</div>
+				</div>
+			</form>
+		</main>
+		<footer class="footer">
+			<div class="footer__container">
+				<div data-spoilers="550,max" data-one-spoiler class="footer__menu menu-footer">
+					<details class="menu-footer__column">
+						<summary class="menu-footer__title">Need Help</summary>
+						<ul class="menu-footer__list">
+							<li class="menu-footer__item">
+								<a class="menu-footer__link" href="#">Contact Us</a>
+							</li>
+							<li class="menu-footer__item">
+								<a class="menu-footer__link" href="#">Track Order</a>
+							</li>
+							<li class="menu-footer__item">
+								<a class="menu-footer__link" href="#">Returns & Refunds</a>
+							</li>
+							<li class="menu-footer__item">
+								<a class="menu-footer__link" href="#">FAQ's</a>
+							</li>
+							<li class="menu-footer__item">
+								<a class="menu-footer__link" href="#">Career</a>
+							</li>
+						</ul>
+					</details>
+					<details class="menu-footer__column">
+						<summary class="menu-footer__title">Company</summary>
+						<ul class="menu-footer__list">
+							<li class="menu-footer__item">
+								<a class="menu-footer__link" href="#">About Us</a>
+							</li>
+							<li class="menu-footer__item">
+								<a class="menu-footer__link" href="#">Euphoria Blog</a>
+							</li>
+							<li class="menu-footer__item">
+								<a class="menu-footer__link" href="#">Euphoriastan</a>
+							</li>
+							<li class="menu-footer__item">
+								<a class="menu-footer__link" href="#">Collaboration</a>
+							</li>
+							<li class="menu-footer__item">
+								<a class="menu-footer__link" href="#">Media</a>
+							</li>
+						</ul>
+					</details>
+					<details class="menu-footer__column">
+						<summary class="menu-footer__title">More Info</summary>
+						<ul class="menu-footer__list">
+							<li class="menu-footer__item">
+								<a class="menu-footer__link" href="#">Term and Conditions</a>
+							</li>
+							<li class="menu-footer__item">
+								<a class="menu-footer__link" href="#">Privacy Policy</a>
+							</li>
+							<li class="menu-footer__item">
+								<a class="menu-footer__link" href="#">Shipping Policy</a>
+							</li>
+							<li class="menu-footer__item">
+								<a class="menu-footer__link" href="#">Sitemap</a>
+							</li>
+						</ul>
+					</details>
+					<details class="menu-footer__column menu-footer__column--address">
+						<summary class="menu-footer__title">Location</summary>
+						<address class="menu-footer__address">
+							<ul class="menu-footer__list">
+								<li class="menu-footer__item">
+									<a class="menu-footer__link" href="mailto:support@euphoria.in">support@euphoria.in</a>
+								</li>
+								<li class="menu-footer__item menu-footer__item--location">
+									<p>Eklingpura Chouraha, Ahmedabad Main Road</p>
+									<p>(NH 8- Near Mahadev Hotel) Udaipur, India- 313002</p>
+								</li>
+							</ul>
+						</address>
+					</details>
+				</div>
+				<div class="footer__body">
+					<ul class="footer__social social-footer">
+						<li class="social-footer__item">
+							<a class="social-footer__link _icon-s-facebook" aria-label="Link to facebook" href="#"></a>
+						</li>
+						<li class="social-footer__item">
+							<a class="social-footer__link _icon-s-instagram" aria-label="Link to instagram" href="#"></a>
+						</li>
+						<li class="social-footer__item">
+							<a class="social-footer__link _icon-s-x" aria-label="Link to x" href="#"></a>
+						</li>
+						<li class="social-footer__item">
+							<a class="social-footer__link _icon-s-linkedin" aria-label="Link to linkedin" href="#"></a>
+						</li>
+					</ul>
+					<section class="footer__apps apps">
+						<h5 class="apps__title">Download The App</h5>
+						<ul class="apps__list">
+							<li class="apps__item">
+								<a class="apps__link" aria-label="Link to Google Play" href="#">
+									<img src="../../img/footer/google_play.svg" alt="Icon Google Play">
+								</a>
+							</li>
+							<li class="apps__item">
+								<a class="apps__link" aria-label="Link to App Store" href="#">
+									<img src="../../img/footer/app_store.svg" alt="Icon App Store">
+								</a>
+							</li>
+						</ul>
+					</section>
+				</div>
+				<section data-spoilers class="footer__category popular-categories">
+					<details class="popular-categories__spollers">
+						<summary class="popular-categories__title spoilers-title _icon-chevron-down">Popular Categories
+						</summary>
+						<div class="popular-categories__body">
+							<ul class="popular-categories__list">
+								<li><a class="popular-categories__link" href="#">T-Shirts</a></li>
+								<li><a class="popular-categories__link" href="#">Jeans</a></li>
+								<li><a class="popular-categories__link" href="#">Boxers</a></li>
+								<li><a class="popular-categories__link" href="#">Hoodies &amp; Sweetshirt</a></li>
+								<li><a class="popular-categories__link" href="#">Activewear</a></li>
+							</ul>
+						</div>
+					</details>
+				</section>
+				<div class="footer__copyright">
+					Copyright © 2023 Euphoria Folks Pvt Ltd. All rights reserved.
+				</div>
+			</div>
+		</footer>
+	</div>
+	<script src="../../js/script.js"></script>
+</body>
+
+</html>

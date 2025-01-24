@@ -1,0 +1,232 @@
+.catalog {
+	// .catalog__container
+	&__container {
+		@media (min-width: toEm($tablet)){
+			display: flex;
+			align-items: flex-start;
+			@include adaptiveValue("column-gap", 50, 25);
+		}
+
+	}
+	// .catalog__filter
+	&__filter {
+		@media (min-width: toEm($tablet)){
+			flex: 0 0 23.8%;
+			min-width: toRem(220);	
+		}
+	}
+	// .catalog__body
+	&__body {
+		@include adaptiveValue("padding-top", 50, 15);
+		@media (min-width: toEm($tablet)){
+			flex-grow: 1;
+		}
+	}
+	// .catalog__header
+	&__header {
+		display: flex;
+		column-gap: toRem(40);
+		row-gap: toRem(12);
+		flex-wrap: wrap;
+		&:not(:last-child) {
+			@include adaptiveValue("margin-bottom", 50, 25);
+		}
+		@media (max-width: toEm(599.98)){
+			justify-content: center;
+		}
+	}
+	// .catalog__title
+	&__title {
+		flex-grow: 1;
+		@media (max-width: toEm(599.98)){
+			flex-basis: 100%;
+			text-align: center;
+		}
+	}
+	// .catalog__type
+	&__type {}
+	// .catalog__products
+	&__products {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(toRem(210), 1fr));
+		@include adaptiveValue("column-gap", 24, 15);
+		@include adaptiveValue("row-gap", 50, 25);
+
+		@media (max-width:toEm($mobileSmall)){
+			grid-template-columns: repeat(auto-fill, minmax(toRem(170), 1fr));
+		}
+	}
+}
+.catalog-title {
+	font-size: toRem(22);
+	font-weight: 600;
+	line-height: 1.18;
+	color: $grayColor;
+}
+.type-catalog {
+	display: flex;
+	flex-wrap: wrap;
+	column-gap: toRem(25);
+	row-gap: toRem(10);
+	// .type-catalog__item
+	&__item {}
+	// .type-catalog__button
+	&__button {
+		transition: color 0.2s;
+		@media (max-width: toEm(599.98)){
+			font-size: toRem(18);
+		}
+		@media (any-hover: hover){
+			&:hover{
+				color: $violetColor;
+			}
+		}
+		// .type-catalog__button--active
+		&--active {
+			color: $violetColor;
+		}
+	}
+}
+
+// !=========================================
+.description-catalog {
+	// .description-catalog__container
+	&__container {}
+	// .description-catalog__title
+	&__title {}
+	// .description-catalog__block
+	&__block {
+		&:not(:last-child) {
+			@include adaptiveValue("margin-bottom", 25, 18);
+		}
+		>*:not(:last-child) {
+			@include adaptiveValue("margin-bottom", 20, 12);
+		}
+		@media (min-width:toEm($containerWidth)){
+			padding-left: toRem(21);
+		}
+	}
+	// .description-catalog__subtitle
+	&__subtitle {
+		font-family: $secondFontFamily;
+		font-size: toRem(20);
+		font-weight: 600;
+		line-height: 1.6;
+		&:not(:last-child) {
+			@include adaptiveValue("margin-bottom", 25, 18);
+		}
+	}
+	// .description-catalog__text
+	&__text {
+		@include adaptiveValue ("font-size", 20, 16);
+		line-height: 1.6;
+		p{
+			&:not(:last-child) {
+				@include adaptiveValue("margin-bottom", 20, 12);
+			}
+		}
+		strong{
+			font-weight: 700;
+		}
+	}
+	// .description-catalog__link
+	&__link {
+		font-family: $secondFontFamily;
+		@include adaptiveValue ("font-size", 20, 16);
+		line-height: 1.6;
+		font-weight: 600;
+		transition: all .2s;
+		@include underline;
+		@media (any-hover: hover){
+			&:hover{
+				color: $violetColor;
+				text-decoration-color: $violetColor;
+			}
+		}
+	}
+}
+// !=========================================
+.best-prices {
+	// .best-prices__container
+	&__container {}
+	// .best-prices__title
+	&__title {
+		&:not(:last-child) {
+			@include adaptiveValue("margin-bottom", 50, 25);
+		}
+	}
+	// .best-prices__box-table
+	&__box-table {
+		&:not(:last-child) {
+			@include adaptiveValue("margin-bottom", 50, 25);
+		}
+		@media (min-width:toEm($containerWidth)){
+			padding-left: toRem(21);
+		}
+		@media (max-width:toEm($mobile)){
+			margin: toRem(0) toRem(-15);
+		}
+		// @media (max-width: toEm(600)){            для скролла
+		// 	overflow: auto;
+		// }
+	}
+	// .best-prices__table
+	&__table {
+		// min-width: toRem(600);                    для скролла
+	}
+}
+.table-prices {
+	@include adaptiveValue("font-size", 24, 16);
+	width: 100%;
+	background-color: rgba(246, 246, 246, 0.6);
+	overflow: hidden;
+	border-collapse: collapse; // убрал отступы в border-ах
+	@media (min-width:toEm($mobile)){
+		border-radius: toRem(12);
+	}
+	thead{
+		font-family: $secondFontFamily;
+		font-weight: 700;
+		line-height: 1.39;
+		color: $grayColor;
+		text-align: left;
+	}
+	// row
+	tr{
+		&:first-child{
+			td{
+				@include adaptiveValue("padding-top", 50, 15);
+			}
+		}
+		&:last-child{
+			td{
+				@include adaptiveValue("padding-bottom", 50, 15);
+			}
+		}
+	}
+	// column
+	th, td {
+		@include adaptiveValue("padding-left", 70, 15);
+		@include adaptiveValue("padding-right", 70, 15);
+		&:nth-child(2){
+			text-align: center;
+		}
+		&:not(:last-child) {
+			border-right: toRem(1) solid rgba(190, 188, 189, 0.4);
+		}
+	}
+	th{
+		@include adaptiveValue("padding-top", 50, 15);
+		@include adaptiveValue("padding-bottom", 44, 15);
+		border-bottom: toRem(1) solid rgba(190, 188, 189, 0.4);
+		&:first-child{
+			width: 78.8%;
+		}	
+	}
+	td{
+		@include adaptiveValue("padding-top", 25, 7.5);
+		@include adaptiveValue("padding-bottom", 25, 7.5);
+		
+	}
+}
+
