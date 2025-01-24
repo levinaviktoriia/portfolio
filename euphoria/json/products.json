@@ -1,0 +1,111 @@
+{
+	"products":[{
+		"id": 1,
+		"favorite": true,
+		"url": "product.html",
+		"image": "../img/products/for-women/w-01.webp",
+		"altImage": "Photo of product", 
+		"title": "Black Sweatshirt with print",
+		"brand": "Jhanvi’s  Brand",
+		"price": "$123.00"
+	},{
+		"id": 2,
+		"favorite": false,
+		"url": "product.html",
+		"image": "../img/products/for-women/w-02.webp",
+		"altImage": "Photo of product", 
+		"title": "White T-shirt",
+		"brand": "Helen’s  Brand",
+		"price": "$11.00"
+	},{
+		"id": 3,
+		"favorite": false,
+		"url": "product.html",
+		"image": "../img/products/for-women/w-03.webp",
+		"altImage": "Photo of product", 
+		"title": "Levender Hoodie with white drawstring",
+		"brand": "Nike’s  Brand",
+		"price": "$119.00"
+	},{
+		"id": 4,
+		"favorite": false,
+		"url": "product.html",
+		"image": "../img/products/for-women/w-04.webp",
+		"altImage": "Photo of product", 
+		"title": "Leaves Pattern White Crop Top",
+		"brand": "Paypal’s  Brand",
+		"price": "$77.00"
+	},{
+		"id": 5,
+		"favorite": false,
+		"url": "product.html",
+		"image": "../img/products/for-women/w-05.webp",
+		"altImage": "Photo of product", 
+		"title": "White Graphic Crop Top",
+		"brand": "Woden’s  Brand",
+		"price": "$29.00"
+	},{
+		"id": 6,
+		"favorite": true,
+		"url": "product.html",
+		"image": "../img/products/for-women/w-06.webp",
+		"altImage": "Photo of product", 
+		"title": "Black Shorts",
+		"brand": "MM’s  Brand",
+		"price": "$37.00"
+	},{
+		"id": 7,
+		"favorite": false,
+		"url": "product.html",
+		"image": "../img/products/for-women/w-07.webp",
+		"altImage": "Photo of product", 
+		"title": "Barboreal Gray Sweatshirt",
+		"brand": "Priya’s  Brand",
+		"price": "$77.00"
+	},{
+		"id": 8,
+		"favorite": false,
+		"url": "product.html",
+		"image": "../img/products/for-women/w-08.webp",
+		"altImage": "Photo of product", 
+		"title": "Yellow Sweatshirt",
+		"brand": "Woden’s  Brand",
+		"price": "$29.00"
+	},{
+		"id": 9,
+		"favorite": false,
+		"url": "product.html",
+		"image": "../img/products/for-women/w-09.webp",
+		"altImage": "Photo of product", 
+		"title": "Flower Pattern Black Crop Top",
+		"brand": "MM’s  Brand",
+		"price": "$37.00"
+	},{
+		"id": 10,
+		"favorite": false,
+		"url": "product.html",
+		"image": "../img/products/for-women/w-10.webp",
+		"altImage": "Photo of product", 
+		"title": "I Don’t Graphic T-shirt ",
+		"brand": "Nisargi’s  Brand",
+		"price": "$77.00"
+	},{
+		"id": 11,
+		"favorite": false,
+		"url": "product.html",
+		"image": "../img/products/for-women/w-11.webp",
+		"altImage": "Photo of product", 
+		"title": "Blue Flower Print Crop Top",
+		"brand": "Mellon’s  Brand",
+		"price": "$29.00"
+	},{
+		"id": 12,
+		"favorite": false,
+		"url": "product.html",
+		"image": "../img/products/for-women/w-12.webp",
+		"altImage": "Photo of product", 
+		"title": "line Pattern Black Hat",
+		"brand": "AS’s  Brand",
+		"price": "$37.00"
+	}]
+}
