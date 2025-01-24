@@ -4,7 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 	<link href="css/style.css" rel="stylesheet">
 	<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
 	<title>Home Page | Euphoria</title>
@@ -26,12 +26,12 @@
 						</ul>
 					</nav>
 				</div>
-				<form class="header__form form-search" action="">
+				<form class="header__form form-search" action="#">
 					<input class="form-search__input" type="text" name="form[]" placeholder="Search">
 					<button class="form-search__button _icon-search" type="submit" aria-label="Button to search"></button>
 				</form>
-				<div data-da=".menu,767.98,3" dropdown-list class="header__language-selector language-selector">
-					<button dropdown-list-btn class="language-selector__button">
+				<div data-da=".menu,767.98,3" data-dropdown-list class="header__language-selector language-selector">
+					<button data-dropdown-list-btn class="language-selector__button">
 						ENG
 					</button>
 					<ul class="language-selector__list">
@@ -44,7 +44,6 @@
 					</ul>
 				</div>
 				<div class="header__action action-header">
-					<!-- action-header__link--active -->
 					<a class="action-header__link _icon-favourite" aria-label="Link to wishlist" href="#"></a>
 					<a class="action-header__link _icon-user" aria-label="Link to user profile" href="#"></a>
 					<a class="action-header__link _icon-cart" aria-label="Link to cart" href="#"></a>
@@ -779,7 +778,7 @@
 						</ul>
 					</section>
 				</div>
-				<section data-spoilers class="footer__category popular-categories">
+				<div data-spoilers class="footer__category popular-categories">
 					<details class="popular-categories__spollers">
 						<summary class="popular-categories__title spoilers-title _icon-chevron-down">Popular Categories
 						</summary>
@@ -793,7 +792,7 @@
 							</ul>
 						</div>
 					</details>
-				</section>
+				</div>
 				<div class="footer__copyright">
 					Copyright © 2023 Euphoria Folks Pvt Ltd. All rights reserved.
 				</div>

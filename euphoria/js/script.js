@@ -32,9 +32,9 @@ function documentActions(e) {
 		showPass(currentBtn)
 	}
 	//! Dropdown-list  (сработает только для первого найденного выпадающего списка)
-	const dropdownBlock = document.querySelector('[dropdown-list]')
+	const dropdownBlock = document.querySelector('[data-dropdown-list]')
 	if(dropdownBlock){
-		const currentBtn = targetElement.closest('[dropdown-list-btn]')
+		const currentBtn = targetElement.closest('[data-dropdown-list-btn]')
 		if(currentBtn){
 			const targetDropdownBlock = currentBtn.parentElement
 			targetDropdownBlock.classList.toggle('open')
@@ -49,7 +49,7 @@ function documentActions(e) {
 				}
 			}
 		}
-		else if(dropdownBlock.classList.contains('open') && !targetElement.closest('[dropdown-list]')){
+		else if(dropdownBlock.classList.contains('open') && !targetElement.closest('[data-dropdown-list]')){
 			dropdownBlock.classList.remove('open')
 			dropdownBlock.style.marginBottom = ''
 		}
