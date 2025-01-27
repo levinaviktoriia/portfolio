@@ -6724,14 +6724,18 @@ textarea {
     color: #3C4242;
   }
   .colors-filter__item:hover span::before {
-    scale: 1.1;
+    -webkit-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+            transform: scale(1.1);
   }
 }
 .colors-filter__item input:checked ~ span {
   color: #3C4242;
 }
 .colors-filter__item input:checked ~ span::before {
-  scale: 0.9;
+  -webkit-transform: scale(0.9);
+      -ms-transform: scale(0.9);
+          transform: scale(0.9);
   outline: 0.09375rem solid #3C4242;
 }
 .colors-filter__item input:focus-visible ~ span {
@@ -8099,7 +8103,7 @@ textarea {
 }
 .item-cart__price {
   font-size: 1.125rem;
-  lighting-color: 1.22;
+  line-height: 1.22;
   color: #3C4242;
   font-weight: 700;
 }
@@ -8723,6 +8727,10 @@ textarea {
       -ms-flex-align: start;
           align-items: flex-start;
   cursor: pointer;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #3C4242;
+  letter-spacing: 0.01875rem;
 }
 .form-content__radio-label::before {
   content: "";
@@ -8740,6 +8748,33 @@ textarea {
   -webkit-transform: translateY(12%);
       -ms-transform: translateY(12%);
           transform: translateY(12%);
+}
+@media (min-width: 79.375em) {
+  .form-content__radio-label {
+    font-size: 1.25rem;
+  }
+}
+@media (min-width: 20em) and (max-width: 79.375em) {
+  @supports (font-size: clamp( 1.125rem , 1.0828947368rem  +  0.2105263158vw , 1.25rem )) {
+    .form-content__radio-label {
+      font-size: clamp( 1.125rem , 1.0828947368rem  +  0.2105263158vw , 1.25rem );
+    }
+  }
+  @supports not (font-size: clamp( 1.125rem , 1.0828947368rem  +  0.2105263158vw , 1.25rem )) {
+    .form-content__radio-label {
+      font-size: calc(1.125rem + 0.125 * (100vw - 20rem) / 59.375);
+    }
+  }
+}
+@media (max-width: 20em) {
+  .form-content__radio-label {
+    font-size: 1.125rem;
+  }
+}
+@media (max-width: 29.99875em) {
+  .form-content__radio-label {
+    font-weight: 600;
+  }
 }
 .form-content__title, .form-content__price-delivery {
   font-weight: 700;
@@ -9395,7 +9430,6 @@ textarea {
 }
 .contact-details__detail--pass {
   font-family: "Courier New", Courier, monospace;
-  text-security: disc;
   -webkit-text-security: disc;
   -webkit-user-select: none;
      -moz-user-select: none;
