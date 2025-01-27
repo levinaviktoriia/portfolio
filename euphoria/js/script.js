@@ -59,7 +59,7 @@ function documentActions(e) {
 // !Dropdown-list(закрытие при изменении размера экрана)=========================================================================================
 const updateMarginForBlock = () => {
 	const dropdownBlock = document.querySelector('[dropdown-list]')
-	dropdownBlock.classList.remove('open')
+	if(dropdownBlock.classList.contains('open')) dropdownBlock.classList.remove('open')
 	dropdownBlock.style.marginBottom = ''
 }
 window.addEventListener('resize', updateMarginForBlock); // Добавляем слушатель события изменения размера окна
