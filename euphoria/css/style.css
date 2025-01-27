@@ -3903,24 +3903,24 @@ textarea {
 }
 @media (min-width: 79.375em) {
   .hero-slide__body {
-    padding-top: 9.375rem;
+    padding-top: 5rem;
   }
 }
 @media (min-width: 20em) and (max-width: 79.375em) {
-  @supports (padding-top: clamp( 6.25rem , 5.1973684211rem  +  5.2631578947vw , 9.375rem )) {
+  @supports (padding-top: clamp( 3.125rem , 2.4934210526rem  +  3.1578947368vw , 5rem )) {
     .hero-slide__body {
-      padding-top: clamp( 6.25rem , 5.1973684211rem  +  5.2631578947vw , 9.375rem );
+      padding-top: clamp( 3.125rem , 2.4934210526rem  +  3.1578947368vw , 5rem );
     }
   }
-  @supports not (padding-top: clamp( 6.25rem , 5.1973684211rem  +  5.2631578947vw , 9.375rem )) {
+  @supports not (padding-top: clamp( 3.125rem , 2.4934210526rem  +  3.1578947368vw , 5rem )) {
     .hero-slide__body {
-      padding-top: calc(6.25rem + 3.125 * (100vw - 20rem) / 59.375);
+      padding-top: calc(3.125rem + 1.875 * (100vw - 20rem) / 59.375);
     }
   }
 }
 @media (max-width: 20em) {
   .hero-slide__body {
-    padding-top: 6.25rem;
+    padding-top: 3.125rem;
   }
 }
 @media (min-width: 79.375em) {
