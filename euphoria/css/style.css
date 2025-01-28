@@ -8732,23 +8732,6 @@ textarea {
   color: #3C4242;
   letter-spacing: 0.01875rem;
 }
-.form-content__radio-label::before {
-  content: "";
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 1.125rem;
-          flex: 0 0 1.125rem;
-  width: 1.125rem;
-  aspect-ratio: 1/1;
-  border-radius: 50%;
-  background-color: transparent;
-  outline: 0.0625rem solid #3C4242;
-  border: 0.1875rem solid #F6F6F6;
-  -webkit-transition: all 0.2s;
-  transition: all 0.2s;
-  -webkit-transform: translateY(12%);
-      -ms-transform: translateY(12%);
-          transform: translateY(12%);
-}
 @media (min-width: 79.375em) {
   .form-content__radio-label {
     font-size: 1.25rem;
@@ -8770,6 +8753,26 @@ textarea {
   .form-content__radio-label {
     font-size: 1.125rem;
   }
+}
+.form-content__radio-label:not(:last-child) {
+  margin-bottom: 0.3125rem;
+}
+.form-content__radio-label::before {
+  content: "";
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 1.125rem;
+          flex: 0 0 1.125rem;
+  width: 1.125rem;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  background-color: transparent;
+  outline: 0.0625rem solid #3C4242;
+  border: 0.1875rem solid #F6F6F6;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  -webkit-transform: translateY(12%);
+      -ms-transform: translateY(12%);
+          transform: translateY(12%);
 }
 @media (max-width: 29.99875em) {
   .form-content__radio-label {
@@ -8835,16 +8838,22 @@ textarea {
   font-weight: 500;
   line-height: 1.18;
 }
-.form-content__body-label {
-  width: 100%;
-}
 .form-content__text {
+  color: #3C4242;
+  line-height: 1.18;
+  padding-left: 2.3125rem;
+}
+.credit-method {
+  padding-left: 2.3125rem;
+}
+.credit-method__text {
+  color: #3C4242;
   line-height: 1.18;
 }
-.form-content__text:not(:last-child) {
+.credit-method__text:not(:last-child) {
   margin-bottom: 1.875rem;
 }
-.credit-payment__images {
+.credit-method__images {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -8852,36 +8861,36 @@ textarea {
       flex-wrap: wrap;
 }
 @media (min-width: 79.375em) {
-  .credit-payment__images {
+  .credit-method__images {
     gap: 1.25rem;
   }
 }
 @media (min-width: 20em) and (max-width: 79.375em) {
   @supports (gap: clamp( 0.3125rem , -0.0032894737rem  +  1.5789473684vw , 1.25rem )) {
-    .credit-payment__images {
+    .credit-method__images {
       gap: clamp( 0.3125rem , -0.0032894737rem  +  1.5789473684vw , 1.25rem );
     }
   }
   @supports not (gap: clamp( 0.3125rem , -0.0032894737rem  +  1.5789473684vw , 1.25rem )) {
-    .credit-payment__images {
+    .credit-method__images {
       gap: calc(0.3125rem + 0.9375 * (100vw - 20rem) / 59.375);
     }
   }
 }
 @media (max-width: 20em) {
-  .credit-payment__images {
+  .credit-method__images {
     gap: 0.3125rem;
   }
 }
-.credit-payment__images:not(:last-child) {
+.credit-method__images:not(:last-child) {
   margin-bottom: 1.875rem;
 }
 @media (max-width: 29.99875em) {
-  .credit-payment__images:not(:last-child) {
+  .credit-method__images:not(:last-child) {
     margin-bottom: 0.9375rem;
   }
 }
-.credit-payment__item-images {
+.credit-method__item-images {
   cursor: default;
   -ms-flex-negative: 0;
       flex-shrink: 0;
@@ -8892,42 +8901,42 @@ textarea {
   place-items: center;
 }
 @media (min-width: 29.99875em) {
-  .credit-payment__item-images {
+  .credit-method__item-images {
     -ms-flex-preferred-size: 5rem;
         flex-basis: 5rem;
   }
 }
 @media (min-width: 20em) and (max-width: 29.99875em) {
   @supports (flex-basis: clamp( 3.125rem , -0.6254688086rem  +  18.752344043vw , 5rem )) {
-    .credit-payment__item-images {
+    .credit-method__item-images {
       -ms-flex-preferred-size: clamp( 3.125rem , -0.6254688086rem  +  18.752344043vw , 5rem );
           flex-basis: clamp( 3.125rem , -0.6254688086rem  +  18.752344043vw , 5rem );
     }
   }
   @supports not (flex-basis: clamp( 3.125rem , -0.6254688086rem  +  18.752344043vw , 5rem )) {
-    .credit-payment__item-images {
+    .credit-method__item-images {
       -ms-flex-preferred-size: calc(3.125rem + 1.875 * (100vw - 20rem) / 9.99875);
           flex-basis: calc(3.125rem + 1.875 * (100vw - 20rem) / 9.99875);
     }
   }
 }
 @media (max-width: 20em) {
-  .credit-payment__item-images {
+  .credit-method__item-images {
     -ms-flex-preferred-size: 3.125rem;
         flex-basis: 3.125rem;
   }
 }
-.credit-payment__item-images img {
+.credit-method__item-images img {
   -o-object-fit: contain;
      object-fit: contain;
   width: 65%;
   height: 37%;
 }
-.credit-payment__inputs {
+.credit-method__inputs {
   display: grid;
 }
 @media (min-width: 79.375em) {
-  .credit-payment__inputs {
+  .credit-method__inputs {
     -webkit-column-gap: 3.125rem;
        -moz-column-gap: 3.125rem;
             column-gap: 3.125rem;
@@ -8935,14 +8944,14 @@ textarea {
 }
 @media (min-width: 47.99875em) and (max-width: 79.375em) {
   @supports ((-moz-column-gap: clamp( 0.9375rem , -2.408893072rem  +  6.9718337915vw , 3.125rem )) or (column-gap: clamp( 0.9375rem , -2.408893072rem  +  6.9718337915vw , 3.125rem ))) {
-    .credit-payment__inputs {
+    .credit-method__inputs {
       -webkit-column-gap: clamp( 0.9375rem , -2.408893072rem  +  6.9718337915vw , 3.125rem );
          -moz-column-gap: clamp( 0.9375rem , -2.408893072rem  +  6.9718337915vw , 3.125rem );
               column-gap: clamp( 0.9375rem , -2.408893072rem  +  6.9718337915vw , 3.125rem );
     }
   }
   @supports not ((-moz-column-gap: clamp( 0.9375rem , -2.408893072rem  +  6.9718337915vw , 3.125rem )) or (column-gap: clamp( 0.9375rem , -2.408893072rem  +  6.9718337915vw , 3.125rem ))) {
-    .credit-payment__inputs {
+    .credit-method__inputs {
       -webkit-column-gap: calc(0.9375rem + 2.1875 * (100vw - 47.99875rem) / 31.37625);
          -moz-column-gap: calc(0.9375rem + 2.1875 * (100vw - 47.99875rem) / 31.37625);
               column-gap: calc(0.9375rem + 2.1875 * (100vw - 47.99875rem) / 31.37625);
@@ -8950,61 +8959,61 @@ textarea {
   }
 }
 @media (max-width: 47.99875em) {
-  .credit-payment__inputs {
+  .credit-method__inputs {
     -webkit-column-gap: 0.9375rem;
        -moz-column-gap: 0.9375rem;
             column-gap: 0.9375rem;
   }
 }
 @media (min-width: 79.375em) {
-  .credit-payment__inputs {
+  .credit-method__inputs {
     row-gap: 1.75rem;
   }
 }
 @media (min-width: 20em) and (max-width: 79.375em) {
   @supports (row-gap: clamp( 0.625rem , 0.2460526316rem  +  1.8947368421vw , 1.75rem )) {
-    .credit-payment__inputs {
+    .credit-method__inputs {
       row-gap: clamp( 0.625rem , 0.2460526316rem  +  1.8947368421vw , 1.75rem );
     }
   }
   @supports not (row-gap: clamp( 0.625rem , 0.2460526316rem  +  1.8947368421vw , 1.75rem )) {
-    .credit-payment__inputs {
+    .credit-method__inputs {
       row-gap: calc(0.625rem + 1.125 * (100vw - 20rem) / 59.375);
     }
   }
 }
 @media (max-width: 20em) {
-  .credit-payment__inputs {
+  .credit-method__inputs {
     row-gap: 0.625rem;
   }
 }
-.credit-payment__inputs .input-pass__hide-pass {
+.credit-method__inputs .input-pass__hide-pass {
   right: 5%;
 }
 @media (min-width: 79.375em) {
-  .credit-payment__inputs .input-pass__hide-pass {
+  .credit-method__inputs .input-pass__hide-pass {
     bottom: 0.5rem;
   }
 }
 @media (min-width: 20em) and (max-width: 79.375em) {
   @supports (bottom: clamp( 0.125rem , -0.0013157895rem  +  0.6315789474vw , 0.5rem )) {
-    .credit-payment__inputs .input-pass__hide-pass {
+    .credit-method__inputs .input-pass__hide-pass {
       bottom: clamp( 0.125rem , -0.0013157895rem  +  0.6315789474vw , 0.5rem );
     }
   }
   @supports not (bottom: clamp( 0.125rem , -0.0013157895rem  +  0.6315789474vw , 0.5rem )) {
-    .credit-payment__inputs .input-pass__hide-pass {
+    .credit-method__inputs .input-pass__hide-pass {
       bottom: calc(0.125rem + 0.375 * (100vw - 20rem) / 59.375);
     }
   }
 }
 @media (max-width: 20em) {
-  .credit-payment__inputs .input-pass__hide-pass {
+  .credit-method__inputs .input-pass__hide-pass {
     bottom: 0.125rem;
   }
 }
 @media (min-width: 29.99875em) {
-  .credit-payment__inputs {
+  .credit-method__inputs {
     grid-template-columns: repeat(auto-fill, minmax(17.1875rem, 1fr));
   }
 }
