@@ -22,34 +22,34 @@ function documentActions(e) {
 		ratingParentEl.classList.contains('rating--set') ? starRatingGet(ratingParentEl, ratingInput) : null
 	}
 	// !Tabs
-	if(targetElement.closest('[data-tabs-button]')){
+	if (targetElement.closest('[data-tabs-button]')) {
 		const currentBtnItem = targetElement.closest('LI')
-		if(targetElement.closest('LI')) setTab(currentBtnItem)
+		if (targetElement.closest('LI')) setTab(currentBtnItem)
 	}
 	// !Show pass
-	if(targetElement.closest('[aria-pressed]')){
+	if (targetElement.closest('[aria-pressed]')) {
 		const currentBtn = targetElement.closest('[aria-pressed]')
 		showPass(currentBtn)
 	}
 	//! Dropdown-list  (сработает только для первого найденного выпадающего списка)
 	const dropdownBlock = document.querySelector('[data-dropdown-list]')
-	if(dropdownBlock){
+	if (dropdownBlock) {
 		const currentBtn = targetElement.closest('[data-dropdown-list-btn]')
-		if(currentBtn){
+		if (currentBtn) {
 			const targetDropdownBlock = currentBtn.parentElement
 			targetDropdownBlock.classList.toggle('open')
 
-			if(document.documentElement.clientWidth<767.98) {
+			if (document.documentElement.clientWidth < 767.98) {
 				const nextElement = currentBtn.nextElementSibling
 				if (targetDropdownBlock.classList.contains('open') && nextElement) {
-					 const heightBlock = nextElement.offsetHeight
-					 targetDropdownBlock.style.marginBottom = `${heightBlock + 25}px`
+					const heightBlock = nextElement.offsetHeight
+					targetDropdownBlock.style.marginBottom = `${heightBlock + 25}px`
 				} else {
 					targetDropdownBlock.style.marginBottom = ''
 				}
 			}
 		}
-		else if(dropdownBlock.classList.contains('open') && !targetElement.closest('[data-dropdown-list]')){
+		else if (dropdownBlock.classList.contains('open') && !targetElement.closest('[data-dropdown-list]')) {
 			dropdownBlock.classList.remove('open')
 			dropdownBlock.style.marginBottom = ''
 		}
@@ -59,8 +59,10 @@ function documentActions(e) {
 // !Dropdown-list(закрытие при изменении размера экрана)=========================================================================================
 const updateMarginForBlock = () => {
 	const dropdownBlock = document.querySelector('[dropdown-list]')
-	if(dropdownBlock.classList.contains('open')) dropdownBlock.classList.remove('open')
-	dropdownBlock.style.marginBottom = ''
+	if (dropdownBlock && dropdownBlock.classList.contains('open')) {
+		dropdownBlock.classList.remove('open')
+		dropdownBlock.style.marginBottom = ''
+	}
 }
 window.addEventListener('resize', updateMarginForBlock); // Добавляем слушатель события изменения размера окна
 
@@ -93,7 +95,7 @@ if (ratings) {
 	ratings.forEach(ratingEl => {
 		let ratingValue = ratingEl.dataset.rating ? parseFloat(ratingEl.dataset.rating) : 0
 		starRatingSet(ratingEl, ratingValue)
-		if(ratingEl.querySelector('.rating__value') && ratingValue) ratingEl.querySelector('.rating__value').innerText = ratingValue
+		if (ratingEl.querySelector('.rating__value') && ratingValue) ratingEl.querySelector('.rating__value').innerText = ratingValue
 	})
 }
 
@@ -136,8 +138,8 @@ if (heroSlider) {
 			autoHeight: autoHeightValue,
 			speed: 800,
 			parallax: true,
-			autoplay:{
-				delay:5000,
+			autoplay: {
+				delay: 5000,
 			},
 			pagination: {
 				el: '.slider-hero__pagination',
@@ -1006,17 +1008,17 @@ function tabs() {
 }
 tabs()
 //! Button show/hide pass==========================================================================================================================================
-function showPass(toggleButton ){
-	const passwordInput  = toggleButton.previousElementSibling
-	
-	const isPressed  = toggleButton.getAttribute('aria-pressed') === 'true'
+function showPass(toggleButton) {
+	const passwordInput = toggleButton.previousElementSibling
+
+	const isPressed = toggleButton.getAttribute('aria-pressed') === 'true'
 	toggleButton.setAttribute('aria-pressed', !isPressed); // Переключаем состояние
 	passwordInput.type = isPressed ? 'password' : 'text'; // Меняем тип поля
 	toggleButton.classList.toggle('_icon-eye-hide', !isPressed);
 	toggleButton.classList.toggle('_icon-eye', isPressed);
-	if(toggleButton.textContent.length !== 0 ) toggleButton.textContent = isPressed ? 'Show' : 'Hide' ; // Меняем текст кнопки
-	if(toggleButton.hasAttribute('aria-label')){
-		if(isPressed) toggleButton.setAttribute('aria-label', 'Show password button')
+	if (toggleButton.textContent.length !== 0) toggleButton.textContent = isPressed ? 'Show' : 'Hide'; // Меняем текст кнопки
+	if (toggleButton.hasAttribute('aria-label')) {
+		if (isPressed) toggleButton.setAttribute('aria-label', 'Show password button')
 		else toggleButton.setAttribute('aria-label', 'Hide password button')
 	}
 }
@@ -1025,36 +1027,39 @@ let addWindowScrollEvent = false;  // Змінна контролю додава
 function headerScroll() {
 	addWindowScrollEvent = true;
 	const header = document.querySelector('header.header');
-	const headerShow = header.hasAttribute('data-scroll-show');
-	const headerShowTimer = header.dataset.scrollShow ? header.dataset.scrollShow : 500;
-	const startPoint = header.dataset.scroll ? header.dataset.scroll : 1;
-	let scrollDirection = 0;
-	let timer;
-	document.addEventListener("windowScroll", function (e) {
-		const scrollTop = window.scrollY;
-		clearTimeout(timer);
-		if (scrollTop >= startPoint) {
-			!header.classList.contains('_header-scroll') ? header.classList.add('_header-scroll') : null;
-			if (headerShow) {
-				if (scrollTop > scrollDirection) {
-					// downscroll code
-					header.classList.contains('_header-show') ? header.classList.remove('_header-show') : null;
-				} else {
-					// upscroll code
-					!header.classList.contains('_header-show') ? header.classList.add('_header-show') : null;
+	if (header) {
+		const headerShow = header.hasAttribute('data-scroll-show');
+		const headerShowTimer = header.dataset.scrollShow ? header.dataset.scrollShow : 500;
+		const startPoint = header.dataset.scroll ? header.dataset.scroll : 1;
+		let scrollDirection = 0;
+		let timer;
+		document.addEventListener("windowScroll", function (e) {
+			const scrollTop = window.scrollY;
+			clearTimeout(timer);
+			if (scrollTop >= startPoint) {
+				!header.classList.contains('_header-scroll') ? header.classList.add('_header-scroll') : null;
+				if (headerShow) {
+					if (scrollTop > scrollDirection) {
+						// downscroll code
+						header.classList.contains('_header-show') ? header.classList.remove('_header-show') : null;
+					} else {
+						// upscroll code
+						!header.classList.contains('_header-show') ? header.classList.add('_header-show') : null;
+					}
+					timer = setTimeout(() => {
+						!header.classList.contains('_header-show') ? header.classList.add('_header-show') : null;
+					}, headerShowTimer);
 				}
-				timer = setTimeout(() => {
-					!header.classList.contains('_header-show') ? header.classList.add('_header-show') : null;
-				}, headerShowTimer);
+			} else {
+				header.classList.contains('_header-scroll') ? header.classList.remove('_header-scroll') : null;
+				if (headerShow) {
+					header.classList.contains('_header-show') ? header.classList.remove('_header-show') : null;
+				}
 			}
-		} else {
-			header.classList.contains('_header-scroll') ? header.classList.remove('_header-scroll') : null;
-			if (headerShow) {
-				header.classList.contains('_header-show') ? header.classList.remove('_header-show') : null;
-			}
-		}
-		scrollDirection = scrollTop <= 0 ? 0 : scrollTop;
-	});
+			scrollDirection = scrollTop <= 0 ? 0 : scrollTop;
+		});
+	}
+
 }
 setTimeout(() => {
 	if (addWindowScrollEvent) {
