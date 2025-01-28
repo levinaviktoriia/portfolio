@@ -246,62 +246,52 @@
 										<div class="form-content__item">
 											<input class="form-content__radio-input" id="credit-card" checked type="radio"
 												value="credit-card" name="payment-method">
-											<label class="form-content__radio-label" for="credit-card">
-												<div class="form-content__body-label">
-													<div class="form-content__title">Credit Card</div>
-													<div class="form-content__text">We accept all major credit cards.</div>
-													<div class="form-content__credit-payment credit-payment">
-														<ul class="credit-payment__images">
-															<li class="credit-payment__item-images"><img src="../../img/icons/google-pay.png"
-																	alt="Google Pay"></li>
-															<li class="credit-payment__item-images"><img src="../../img/icons/visa.png"
-																	alt="Visa"></li>
-															<li class="credit-payment__item-images"><img src="../../img/icons/paypal.png"
-																	alt="PayPal"></li>
-															<li class="credit-payment__item-images"><img src="../../img/icons/paypass.png"
-																	alt="PayPass"></li>
-														</ul>
-														<div class="credit-payment__inputs">
-															<div class="credit-payment__item-input">
-																<input required class="credit-payment__input main-input" type="text"
-																	name="card-number" placeholder="Card number" autocomplete="off">
-															</div>
-															<div class="credit-payment__item-input">
-																<input required class="credit-payment__input main-input" type="text"
-																	name="name-card" placeholder="Name of card" autocomplete="off">
-															</div>
-															<div class="credit-payment__item-input">
-																<input required class="credit-payment__input main-input" type="tel"
-																	name="card-expiration-date" placeholder="Expiration date (MM/YY)"
-																	autocomplete="off">
-															</div>
-															<div class="credit-payment__item-input input-pass">
-																<input required class="input-pass__input main-input" type="password"
-																	name="security-code" placeholder="Security Code" autocomplete="off">
-																<button type="button" aria-pressed="false"
-																	class="input-pass__hide-pass _icon-eye"></button>
-															</div>
-														</div>
+											<label class="form-content__radio-label" for="credit-card"> Credit Card</label>
+											<div class="form-content__credit-payment-method credit-method">
+												<div class="credit-method__text">We accept all major credit cards.</div>
+												<ul class="credit-method__images">
+													<li class="credit-method__item-images"><img src="../../img/icons/google-pay.png"
+															alt="Payment Method Google Pay"></li>
+													<li class="credit-method__item-images"><img src="../../img/icons/visa.png"
+															alt="Payment Method Visa"></li>
+													<li class="credit-method__item-images"><img src="../../img/icons/paypal.png"
+															alt="Payment Method PayPal"></li>
+													<li class="credit-method__item-images"><img src="../../img/icons/paypass.png"
+															alt="Payment Method PayPass"></li>
+												</ul>
+												<div class="credit-method__inputs">
+													<div class="credit-method__item-input">
+														<input required class="credit-method__input main-input" type="text"
+															name="form[]" placeholder="Card number" autocomplete="off">
+													</div>
+													<div class="credit-method__item-input">
+														<input required class="credit-method__input main-input" type="text"
+															name="form[]" placeholder="Name of card" autocomplete="off">
+													</div>
+													<div class="credit-method__item-input">
+														<input required class="credit-method__input main-input" type="tel"
+															name="form[]" placeholder="Expiration date (MM/YY)"
+															autocomplete="off">
+													</div>
+													<div class="credit-method__item-input input-pass">
+														<input required class="input-pass__input main-input" type="password"
+															name="form[]" placeholder="Security Code" autocomplete="off">
+														<button type="button" aria-pressed="false"
+															class="input-pass__hide-pass _icon-eye" aria-label="Show password button" ></button>
 													</div>
 												</div>
-											</label>
+											</div>
 										</div>
 										<div class="form-content__item">
 											<input class="form-content__radio-input" id="cash" type="radio" value="cash"
 												name="payment-method">
-											<label class="form-content__radio-label" for="cash">
-												<div class="form-content__body-label">
-													<div class="form-content__title">Cash on delivery</div>
-													<div class="form-content__text">Pay with cash upon delivery.</div>
-												</div>
-											</label>
+											<label class="form-content__radio-label" for="cash">Cash on delivery</label>
+											<div class="form-content__text">Pay with cash upon delivery.</div>
 										</div>
 										<div class="form-content__item">
 											<input class="form-content__radio-input" id="paypal" type="radio" value="paypal"
 												name="payment-method">
-											<label class="form-content__radio-label" for="paypal">
-												PayPal
-											</label>
+											<label class="form-content__radio-label" for="paypal">PayPal</label>
 										</div>
 									</div>
 								</section>
