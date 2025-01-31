@@ -57,14 +57,30 @@
 		<main class="page">
 			<section class="page__catalog catalog">
 				<div class="catalog__container">
+					<div class="catalog__body">
+						<div class="catalog__header">
+							<h1 class="catalog__title catalog-title">Women’s Clothing</h1>
+							<ul class="catalog__type type-catalog">
+								<li class="type-catalog__item">
+									<button class="type-catalog__button type-catalog__button--active catalog-title">New</button>
+								</li>
+								<li class="type-catalog__item">
+									<button class="type-catalog__button catalog-title">Recommended</button>
+								</li>
+							</ul>
+						</div>
+						<div class="catalog__products"> 
+							<!-- items product --> 
+						</div>
+					</div>
 					<aside data-spoilers="991.98, max" class="catalog__filter filter">
 						<!-- filter -->
 						<details class="filter__spoiler">
 							<summary class="filter__header">
-								<h4 class="filter__title title-filter">
+								<h3 class="filter__title title-filter">
 									<button class="title-filter__button title-filter__button--main _icon-filter" type="button"
 										aria-label="Open/Close Filter Button">Filter</button>
-								</h4>
+								</h3>
 							</summary>
 							<form  data-spoilers action="#" class="filter__body">
 								<div class="filter__section section-filter">
@@ -269,22 +285,6 @@
 							</form>
 						</details>
 					</aside>
-					<div class="catalog__body">
-						<div class="catalog__header">
-							<h1 class="catalog__title catalog-title">Women’s Clothing</h1>
-							<ul class="catalog__type type-catalog">
-								<li class="type-catalog__item">
-									<button class="type-catalog__button type-catalog__button--active catalog-title">New</button>
-								</li>
-								<li class="type-catalog__item">
-									<button class="type-catalog__button catalog-title">Recommended</button>
-								</li>
-							</ul>
-						</div>
-						<div class="catalog__products"> 
-							<!-- items product --> 
-						</div>
-					</div>
 				</div>
 			</section>
 			<article class="page__description description-catalog">

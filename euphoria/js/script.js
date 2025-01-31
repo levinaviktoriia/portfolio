@@ -56,6 +56,159 @@ function documentActions(e) {
 	}
 }
 
+
+// !FORM Validate================================================================================================================================
+document.addEventListener('DOMContentLoaded', () => {
+	function clearErrorOnFocus(inputs, errorBlock){
+		inputs.forEach(inputField => {
+			inputField.addEventListener('focus', function () {
+				inputs.forEach(inputItem => {
+					inputItem.classList.remove('error');
+				})
+				if (errorBlock.textContent.length !== 0) errorBlock.textContent = '';
+			})
+		})
+	}	
+	if (document.getElementById('validation-form')) {
+		const form = document.getElementById('validation-form');
+		const fields = form.querySelectorAll('[data-validate]');
+		const errorMessages = {
+			 email: 'Please enter a valid email',
+			 phone: 'Please enter a valid phone number',
+			 required: 'This field cannot be empty',
+		};
+  
+		const validateField = (field) => {
+			 const value = field.value.trim();
+			 const validationType = field.dataset.validate;
+			 let errorDiv = field.parentElement.querySelector('.authentication-form__error');
+			 
+			 // Если ошибки нет, создаем новый блок
+			 if (!errorDiv) {
+				  errorDiv = document.createElement('DIV');
+				  errorDiv.className = 'authentication-form__error';
+			 }
+  
+			 // Проверка на пустое поле
+			 if (!value) {
+				  errorDiv.textContent = errorMessages.required;
+				  field.parentElement.append(errorDiv); // Вставляем ошибку в DOM
+				  field.classList.add('error');
+				  return false;
+			 }
+  
+			 // Проверка формата (email, phone)
+			 let isValid = true;
+			 if (validationType === 'email') {
+				  isValid = validator.isEmail(value);
+			 } else if (validationType === 'phone') {
+				  isValid = validator.isMobilePhone(value, 'ru-RU');
+			 }
+  
+			 if (!isValid) {
+				  errorDiv.textContent = errorMessages[validationType];
+				  field.parentElement.append(errorDiv); // Вставляем ошибку в DOM
+				  field.classList.add('error');
+				  return false;
+			 }
+  
+			 // Если всё валидно, удаляем ошибку, если она была
+			 field.classList.remove('error');
+			 if (errorDiv) {
+				  errorDiv.remove(); // Удаляем ошибку из DOM
+			 }
+  
+			 return true;
+		};
+  
+		form.addEventListener('submit', (event) => {
+			 event.preventDefault(); // Останавливаем отправку формы
+			 let isFormValid = true;
+			 fields.forEach((field) => {
+				  const isValid = validateField(field);
+				  if (!isValid) isFormValid = false;
+			 });
+  
+			 // Здесь можно добавить логику для успешной отправки формы
+			 // if (isFormValid) {
+			 //     alert('Форма успешно отправлена!');
+			 //     // form.submit(); // Отправка формы
+			 // } else {
+			 //     console.log('Форма не прошла валидацию.');
+			 // }
+		});
+  
+		fields.forEach((field) => {
+			 field.addEventListener('focus', () => {
+				  const errorDiv = field.parentElement.querySelector('.authentication-form__error');
+				  if (errorDiv) {
+						field.classList.remove('error');
+						errorDiv.remove(); // Удаляем ошибку при фокусе
+				  }
+			 });
+		});
+   }
+	if(document.getElementById('change-password-form')){
+		const passForm = document.getElementById('change-password-form')
+		passForm.addEventListener('submit', (event) => {
+			event.preventDefault()
+			const newPass = document.getElementById('input-pass-first').value.trim()
+			const confirmPass = document.getElementById('input-pass-sec').value.trim()
+			const errorMessages = {
+				passwordMismatch: 'Passwords do not match',
+				fieldsEmpty: 'Fields cannot be empty',
+			};
+			let isValid = true
+			const errorDiv = passForm.querySelector('[data-error-field]')
+	
+			if (errorDiv) {
+				if (!newPass || !confirmPass) {
+					errorDiv.textContent = errorMessages.fieldsEmpty
+					errorDiv.style.display = 'block';
+					isValid = false
+				} else if (newPass !== confirmPass) {
+					errorDiv.textContent = errorMessages.passwordMismatch
+					errorDiv.style.display = 'block';
+					isValid = false
+				}
+			}
+			const fields = passForm.querySelectorAll('input')
+			if (!isValid) {
+				fields.forEach((field) => {
+					field.classList.add('error');
+				})
+			}
+			clearErrorOnFocus(fields, errorDiv)
+		})
+	}
+	if(document.getElementById('authentication-form')){
+		const authForm = document.getElementById('authentication-form')
+		authForm.addEventListener('submit', (event) => {
+			event.preventDefault()
+			const authFields = authForm.querySelectorAll('input')
+			const errorMessages = {
+				fieldsEmpty: 'Fields cannot be empty',
+			};
+			const inpValLogin = authFields[0].value.trim()
+			const inpPassLogin = authFields[1].value.trim()
+			const errorDiv = authForm.querySelector('[data-error-field]')
+			let isValid = true
+			if(errorDiv){
+				if(!inpValLogin || !inpPassLogin){
+					errorDiv.textContent = errorMessages.fieldsEmpty
+					errorDiv.style.display = 'block';
+					isValid = false
+				}
+			}
+			if (!isValid) {
+				authFields.forEach((field) => {
+					field.classList.add('error');
+				})
+			}
+			clearErrorOnFocus(authFields, errorDiv)
+		})
+	}
+});
 // !Dropdown-list(закрытие при изменении размера экрана)=========================================================================================
 const updateMarginForBlock = () => {
 	const dropdownBlock = document.querySelector('[dropdown-list]')
@@ -855,7 +1008,7 @@ function initProducts(data) {
 		linkTitleProduct.className = 'item-product__link-title'
 		linkTitleProduct.setAttribute('href', product.url)
 
-		const titleProduct = document.createElement('H4')
+		const titleProduct = document.createElement('H3')
 		titleProduct.className = 'item-product__title'
 		titleProduct.innerText = product.title
 
@@ -1022,55 +1175,48 @@ function showPass(toggleButton) {
 		else toggleButton.setAttribute('aria-label', 'Hide password button')
 	}
 }
-// ! Робота з шапкою при скролі ==========================================================================================================================================
-let addWindowScrollEvent = false;  // Змінна контролю додавання події window scroll.
-function headerScroll() {
-	addWindowScrollEvent = true;
-	const header = document.querySelector('header.header');
-	if (header) {
-		const headerShow = header.hasAttribute('data-scroll-show');
-		const headerShowTimer = header.dataset.scrollShow ? header.dataset.scrollShow : 500;
-		const startPoint = header.dataset.scroll ? header.dataset.scroll : 1;
-		let scrollDirection = 0;
-		let timer;
-		document.addEventListener("windowScroll", function (e) {
-			const scrollTop = window.scrollY;
-			clearTimeout(timer);
-			if (scrollTop >= startPoint) {
-				!header.classList.contains('_header-scroll') ? header.classList.add('_header-scroll') : null;
-				if (headerShow) {
-					if (scrollTop > scrollDirection) {
-						// downscroll code
-						header.classList.contains('_header-show') ? header.classList.remove('_header-show') : null;
-					} else {
-						// upscroll code
-						!header.classList.contains('_header-show') ? header.classList.add('_header-show') : null;
-					}
-					timer = setTimeout(() => {
-						!header.classList.contains('_header-show') ? header.classList.add('_header-show') : null;
-					}, headerShowTimer);
-				}
-			} else {
-				header.classList.contains('_header-scroll') ? header.classList.remove('_header-scroll') : null;
-				if (headerShow) {
-					header.classList.contains('_header-show') ? header.classList.remove('_header-show') : null;
-				}
-			}
-			scrollDirection = scrollTop <= 0 ? 0 : scrollTop;
-		});
-	}
 
+// ! Робота з шапкою при скролі ===================================================================================================================================
+const headerEl = document.querySelector('header');
+// Функция debounce с использованием замыкания
+function debounce(callback, delay) {
+    let timer;
+    return function (...args) {
+        clearTimeout(timer);
+        timer = setTimeout(() => {
+            callback.apply(this, args);
+        }, delay);
+    };
 }
-setTimeout(() => {
-	if (addWindowScrollEvent) {
-		let windowScroll = new Event("windowScroll");
-		window.addEventListener("scroll", function (e) {
-			document.dispatchEvent(windowScroll);
-		});
-	}
-}, 0);
-headerScroll()
 
+// Обработчик прокрутки
+const handleScroll = debounce(() => {
+   addClassForHeaderAfterScroll(20, 991.98, headerEl);
+}, 100);
+
+// Обработчик изменения размеров окна
+const handleResize = debounce(() => {
+    if (document.documentElement.clientWidth <= 991.98) {
+        if (headerEl.classList.contains('_header-scroll')) {
+            headerEl.classList.remove('_header-scroll');
+        }
+    }
+}, 100);
+
+// Подключаем обработчики событий
+window.addEventListener("scroll", handleScroll);
+window.addEventListener("resize", handleResize);
+
+// Основная функция для добавления/удаления класса
+function addClassForHeaderAfterScroll(startingPoint, minWindowWidth, headerEl) {
+    if (document.documentElement.clientWidth > minWindowWidth) {
+        if (window.scrollY > startingPoint) {
+            headerEl.classList.add('_header-scroll');
+        } else {
+            headerEl.classList.remove('_header-scroll');
+        }
+    }
+}
 
 
 

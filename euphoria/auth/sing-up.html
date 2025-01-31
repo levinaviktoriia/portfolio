@@ -57,16 +57,17 @@
 							<button class="login-via-socials__btn login-via-socials__btn--google" type="button">Continue With Google</button>
 							<button class="login-via-socials__btn login-via-socials__btn--x" type="button">Continue With X</button>
 						</div>
-						<form class="auth__form authentication-form" action="#">
+						<form class="auth__form authentication-form" id="authentication-form" action="#">
 							<div class="authentication-form__inputs">
 								<div class="authentication-form__item-input">
 									<label for="input-email" class="authentication-form__label">Email Address</label>
-									<input required id="input-email" class="authentication-form__input main-input" type="email" name="form[]" data-error="Error Message">
+									<input id="input-email" class="authentication-form__input main-input" type="email" name="form[]">
+									<div class="authentication-form__error" data-error-field></div>
 								</div>
 								<div class="authentication-form__item-input">
 									<div class="authentication-form__input-pass input-pass input-pass--text">
 										<label for="input-pass" class="input-pass__label">Password</label>
-										<input required id="input-pass" class="input-pass__input main-input" type="password" name="form[]" data-error="Error Message">
+										<input id="input-pass" class="input-pass__input main-input" type="password" name="form[]">
 										<button type="button" aria-pressed="false" aria-label="Show password button" class="input-pass__hide-pass _icon-eye">Show</button>
 									</div>
 									<div class="authentication-form__text">Use 8 or more characters with a mix of letters, numbers & symbols</div>
