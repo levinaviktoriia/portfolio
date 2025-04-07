@@ -1,0 +1,118 @@
+@use "sass:math";
+
+$minWidth: 320; // Мінімальна ширина сторінки
+$maxWidth: 1920; // Ширина полотна (макету)
+$maxWidthContainer: 1500; // Ширина обмежуючого контейнера (0 = немає обмеження)
+$containerPadding: 40; // Загальний відступ у контейнера
+// (30 = по 15px ліворуч і праворуч, 0 = немає відступу)
+$containerWidth: $maxWidthContainer + $containerPadding; // Ширина спрацьовування першого брейкпоінту
+
+$pc: 1023.98;
+$tablet: 991.98;
+$mobile: 767.98;
+$mobileSmall: 479.98;
+
+// font-family
+$fontFamily: 'ITC Avant Garde Gothic Std', sans-serif;
+$secondFontFamily: 'Hepta Slab', serif;
+
+// colors
+$mainColor: #3F415C;
+$cometColor: #595A7E; 
+$blueGrayColor: #7274A0;
+$lightBlueGrayColor: #8B8EC2;
+$lightBlueColor: #D1D2E7;
+$lightTextColor: #F0F1FD;
+$darkBlueColor: #181C50;
+$titleColor: #1A1A29;
+$cornflowerBlueColor: #6670EE;
+$ceruleanColor: #079DD9;
+$whiteColor: #FFF;
+$blackColor: #000;
+$circleColor: #858DF1;
+
+
+
+// Функції-----------------------------------------------
+@import "_functions.scss";
+// Міксіни-----------------------------------------------
+@import "_mixins.scss";
+// Шрифти------------------------------------------------
+@import "_fonts.scss";
+// Iконки------------------------------------------------
+@import "_icons.scss";
+// Обнулення---------------------------------------------
+@import "_reset.scss";
+@import "_select.scss";
+// Компоненти--------------------------------------------
+@import "_common.scss";
+@import "_header.scss";
+@import "_footer.scss";
+
+
+
+// * Основні стилі---------------------------------------
+body{
+	font-family: $fontFamily;
+	color: $mainColor;
+		
+	// scrollbar-gutter: stable;
+	// Скролл заблоковано
+	.menu-open &,
+	.popup-show & {
+		overflow: hidden;
+		touch-action: none;
+		overscroll-behavior: none;
+	}
+	// Сайт завантажений
+	.loaded & {}
+	.popup-show & {
+		pointer-events: none;
+		user-select: none;
+	}
+	&::after {
+		content: "";
+		background-color: rgba(255, 255, 255, 0.5);
+		position: fixed;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		opacity: 0;
+		backdrop-filter: blur(8px);
+		transition: opacity 0.5s ease 0s;
+		pointer-events: none;
+		z-index: 149;
+		.popup-show & {
+			opacity: 1;
+		}
+	}
+}
+
+   
+.wrapper{
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	@supports (overflow: clip) {
+		overflow: clip;
+	}
+	> main{
+		flex-grow: 1;
+	}
+	// Фікс для слайдерів
+	// > * {
+	// 	min-width: 0;
+	// }
+}
+
+[class*="__container"]{
+	max-width: toRem($containerWidth);
+	margin: 0 auto;
+	padding-left: toRem(math.div($containerPadding, 2));
+	padding-right: toRem(math.div($containerPadding, 2));
+}
+
+// *-----------------------------------------------------
+@import "_main.scss";

@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Hepta+Slab:wght@1..900&display=swap');
+
+@font-face {
+	font-family: 'ITC Avant Garde Gothic Std';
+	src: url('../fonts/ITC-Avant-Garde-Gothic-Std-Light.woff2') format('woff2'),
+		 url('../fonts/ITC-Avant-Garde-Gothic-Std-Light.woff') format('woff');
+	font-style: normal;
+	font-weight: 300;
+	font-display: swap;
+}
+@font-face {
+	font-family: 'ITC Avant Garde Gothic Std';
+	src: url('../fonts/ITC-Avant-Garde-Gothic-Std-Book.woff2') format('woff2'),
+		 url('../fonts/ITC-Avant-Garde-Gothic-Std-Book.woff') format('woff');
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+}
+@font-face {
+	font-family: 'ITC Avant Garde Gothic Std';
+	src: url('../fonts/ITC-Avant-Garde-Gothic-Std-Medium.woff2') format('woff2'),
+		 url('../fonts/ITC-Avant-Garde-Gothic-Std-Medium.woff') format('woff');
+	font-style: normal;
+	font-weight: 500;
+	font-display: swap;
+}
+@font-face {
+	font-family: 'ITC Avant Garde Gothic Std';
+	src: url('../fonts/ITC-Avant-Garde-Gothic-Std-Demi.woff2') format('woff2'),
+		 url('../fonts/ITC-Avant-Garde-Gothic-Std-Demi.woff') format('woff');
+	font-style: normal;
+	font-weight: 600;
+	font-display: swap;
+}
+@font-face {
+	font-family: 'ITC Avant Garde Gothic Std';
+	src: url('../fonts/ITC-Avant-Garde-Gothic-Std-Demi-Oblique.woff2') format('woff2'),
+		 url('../fonts/ITC-Avant-Garde-Gothic-Std-Demi-Oblique.woff') format('woff');
+	font-style: oblique;
+	font-weight: 600;
+	font-display: swap;
+}
+@font-face {
+	font-family: 'ITC Avant Garde Gothic Std';
+	src: url('../fonts/ITC-Avant-Garde-Gothic-Std-Bold.woff2') format('woff2'),
+		 url('../fonts/ITC-Avant-Garde-Gothic-Std-Bold.woff') format('woff');
+	font-style: oblique;
+	font-weight: 700;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'icons';
+	src: url('../fonts/icons.woff2') format('woff2'),
+		 url('../fonts/icons.woff') format('woff');
+	font-style: normal;
+	font-weight: normal;
+	font-display: swap;
+}

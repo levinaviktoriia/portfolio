@@ -1,0 +1,228 @@
+.header {
+	position: sticky;
+	z-index: 100;
+	top: 0;
+	width: 100%;
+
+	&::after{
+		position: absolute;
+		z-index: 4;
+		content: '';
+		width: 100%;
+		height: calc(100% + 1px);
+		top: 0;
+		left: 0;
+		background-color: $whiteColor;
+		border-bottom: 1px solid $lightBlueColor;
+	}
+	// .header__container
+	&__container {
+		@include adaptiveValue("min-height", 92, 60, 0, $tablet, $mobileSmall);
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding-top: toRem(10);
+		padding-bottom: toRem(10);
+		column-gap: toRem(20);
+		@media (min-width:toEm($tablet)){
+			column-gap: toRem(50);
+		}
+	}
+	// .header__logo
+	&__logo {
+		position: relative;
+		z-index: 5;
+		flex-shrink: 0;
+		@include adaptiveValue("flex-basis", 119, 78, 0, $tablet, $mobileSmall);
+		img{
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+		}
+	}
+	// .header__menu
+	&__menu {
+		@media (min-width:toEm($mobile)){
+			flex-grow: 1;
+		}
+	}
+	// .header__icon-menu
+	&__icon-menu {
+		position: relative;
+		z-index: 5;
+	}
+}
+.menu {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 4;
+	width: 100%;
+	overflow-y: auto;
+	max-height: 100vh;
+	transform: translateY(-100%);
+	transition: all 0.4s ease;
+	padding: toRem(0) toRem(15) toRem(26) toRem(15);
+	@include adaptiveValue("padding-top", 92, 60);
+	background-color: $whiteColor;
+	.menu-open &{
+		transform: translateY(0);
+		top: 0;
+	}
+	@media (min-width:toEm($mobile)){
+		position: relative;
+		z-index: 5;
+		overflow-y: hidden;
+		padding: 0;
+		transform: translateY(0);
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+		@include adaptiveValue("column-gap", 100, 20, 0, $containerWidth, $tablet);
+	}
+	// .menu__body
+	&__body {
+		padding: toRem(44) toRem(15);
+		&:not(:last-child) {
+			border-bottom: 1px solid $lightBlueColor;
+			margin-bottom: toRem(22);
+			@media (min-width:toEm($mobile)){
+				border-bottom: none;
+				margin-bottom: 0;
+			}
+		}
+		@media (min-width:toEm($mobile)){
+			padding: 0;
+		}
+	}
+	// .menu__list
+	&__list {
+		display: flex;
+		flex-direction: column;
+		row-gap: toRem(5);
+		@media (min-width:toEm($mobile)){
+			flex-direction: row;
+			padding-top: toRem(15);
+			justify-content: flex-end;
+			align-items: center;
+			flex-wrap: wrap;
+			column-gap: toRem(25);
+		}
+		@media (min-width:toEm($tablet)){
+			 column-gap: toRem(40); 
+		}
+	}
+	// .menu__item
+	&__item {
+		color: $darkBlueColor;
+		@include adaptiveValue("font-size", 16, 14, 0, $mobile, $mobileSmall);
+		line-height: 1.2;
+		letter-spacing: toRem(0.5);
+	}
+	// .menu__link
+	&__link{
+		padding-bottom: toRem(10);
+		@include waveDecoration($cornflowerBlueColor);
+	}
+	// .menu__contacts
+	&__contacts {}
+}
+
+.icon-menu {
+	width: toRem(20);
+	height: toRem(14);
+	position: relative;
+	&::before,
+	&::after{
+		content: '';
+	}
+	&::before,
+	&::after,
+	span{
+		position: absolute;
+		height: toRem(2);
+		background-color: $blackColor;
+		border-radius: toRem(20);
+		left: 0;
+		transition: all 0.3s;
+	}
+	&::before{
+		top: 0;
+		width: 85%;
+		.menu-open &{
+			width: 50%;
+			transform: rotate(45deg);
+			top: 15%;
+			left: 5%;
+			border-radius: toRem(20) 0 0 toRem(20);
+		}
+	}
+	&::after{
+		bottom: 0;
+		width: 71%;
+		.menu-open &{
+			width: 50%;
+			transform: rotate(45deg);
+			left: 45%;
+			bottom: 15%;
+			border-radius: 0 toRem(20) toRem(20) 0;
+		}
+	}
+	span{
+		width: 100%;
+		top: calc(50% - toRem(1));
+		.menu-open &{
+			transform: rotate(-45deg);
+			
+		}
+	}
+	@media (min-width:toEm($mobile)){
+		display: none;
+	}
+}
+
+.contacts {
+	flex-shrink: 0;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	column-gap: toRem(20);
+	row-gap: toRem(15);
+	@media (min-width:toEm($mobile)){
+		flex-wrap: nowrap;
+		column-gap: toRem(12);
+		justify-content: flex-end;
+	}
+	// .contacts__socials
+	&__socials {
+		min-width: toRem(102);
+		@media (min-width:toEm($mobile)){
+			justify-content: flex-end;
+		}
+	}
+	// .contacts__link
+	&__button {
+		@media (min-width:toEm($mobile)) and (max-width:toEm(850)) {
+			padding: toRem(10) toRem(25);
+			span{
+				display: none;
+			}
+			@media (any-hover: hover){
+				&:hover{
+					&::before{
+						transform: rotateY(360deg);
+					}
+				}
+			}
+		}
+		&::before{
+			display: none;
+			@media (min-width:toEm($mobile)) and (max-width:toEm(850)){
+				display: block;
+				transition: transform 0.5s ease;
+			}
+
+		}
+	}
+}
+
