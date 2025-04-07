@@ -15,7 +15,7 @@
 	//Кому отправить
 	$mail->addAddress('levvik8@gmail.com');
 	//Тема письма
-	$mail->Subject = 'Hello!"';
+	$mail->Subject = 'Hello!';
 
 
 
@@ -34,25 +34,13 @@
 	if(trim(!empty($_POST['phone']))){
 		$body.='<p><strong>Phone number:</strong> '.$_POST['phone'].'</p>';
 	}
-	if(trim(!empty($_POST['businesss-name']))){
-		$body.='<p><strong>Businesss Name:</strong> '.$_POST['businesss-name'].'</p>';
+	if(trim(!empty($_POST['business-name']))){
+		$body.='<p><strong>Business Name:</strong> '.$_POST['business-name'].'</p>';
 	}
-	
-	// if(trim(!empty($_POST['amount-of-employees']))){
-	// 	$body.='<p><strong>Сообщение:</strong> '.$_POST['amount-of-employees'].'</p>';
-	// }
-	
-	// //Прикрепить файл
-	// if (!empty($_FILES['image']['tmp_name'])) {
-	// 	//путь загрузки файла
-	// 	$filePath = __DIR__ . "/files/" . $_FILES['image']['name']; 
-	// 	//грузим файл
-	// 	if (copy($_FILES['image']['tmp_name'], $filePath)){
-	// 		$fileAttach = $filePath;
-	// 		$body.='<p><strong>Фото в приложении</strong>';
-	// 		$mail->addAttachment($fileAttach);
-	// 	}
-	// }
+	if(trim(!empty($_POST['amount-of-employees']))){
+		$body.='<p><strong>Amount of Employees:</strong> '.$_POST['amount-of-employees'].'</p>';
+	}
+
 
 	$mail->Body = $body;
 

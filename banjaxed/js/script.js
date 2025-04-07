@@ -603,24 +603,43 @@ function formActions(){
 		e.preventDefault()
 
 		let error = getErrors(form)
-		
+
 		let formData = new FormData(form)
 
 		if(error === 0){
 			form.classList.add('_sending')
-			let response = await fetch('sendmail.php', {
-				method: 'POST',
-				body: formData
-			})
-			if(response.ok){
-				let result = await response.json()
-				console.log(result.message);
-				form.reset()
-				form.classList.remove('_sending')
-			} else{
-				console.log('Error');
-				form.classList.remove('_sending')
-			} 
+			try {
+				let response = await fetch('sendmail.php', {
+					method: 'POST',
+					body: formData
+				})
+			
+				if(response.ok){
+					let result = await response.json()
+					console.log(result.message)
+					form.reset()
+				} else {
+					console.log('Ошибка при отправке формы')
+				}
+			} catch (error) {
+				console.error('Ошибка сети или сервера:', error)
+			}
+			form.classList.remove('_sending')
+
+
+			// let response = await fetch('sendmail.php', {
+			// 	method: 'POST',
+			// 	body: formData
+			// })
+			// if(response.ok){
+			// 	let result = await response.json()
+			// 	console.log(result.message);
+			// 	form.reset()
+			// 	form.classList.remove('_sending')
+			// } else{
+			// 	console.log('Error');
+			// 	form.classList.remove('_sending')
+			// } 
 		}
 		else errorPopup.openPopup()
 	}
