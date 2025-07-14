@@ -556,20 +556,30 @@ function revisionButtonsAnimation() {
 		}
 	}
 }
-$(function () {
-	$(buttonAnimSelector)
-		.on('mouseenter', function (e) {
-			var parentOffset = $(this).offset(),
-				relX = e.pageX - parentOffset.left,
-				relY = e.pageY - parentOffset.top;
-			$(this).find('span').css({ top: relY, left: relX })
-		})
-		.on('mouseout', function (e) {
-			var parentOffset = $(this).offset(),
-				relX = e.pageX - parentOffset.left,
-				relY = e.pageY - parentOffset.top;
-			$(this).find('span').css({ top: relY, left: relX })
+document.addEventListener('DOMContentLoaded', function () {
+	const buttons = document.querySelectorAll(buttonAnimSelector);
+	buttons.forEach(button => {
+		button.addEventListener('mouseenter', function (e) {
+			const rect = button.getBoundingClientRect();
+			const relX = e.clientX - rect.left;
+			const relY = e.clientY - rect.top;
+			const span = button.querySelector('span');
+			if (span) {
+				span.style.top = relY + 'px';
+				span.style.left = relX + 'px';
+			}
 		});
+		button.addEventListener('mouseout', function (e) {
+			const rect = button.getBoundingClientRect();
+			const relX = e.clientX - rect.left;
+			const relY = e.clientY - rect.top;
+			const span = button.querySelector('span');
+			if (span) {
+				span.style.top = relY + 'px';
+				span.style.left = relX + 'px';
+			}
+		});
+	});
 });
 let buttonsForCoordinates = document.querySelectorAll('.button--colored');
 for (const btn of buttonsForCoordinates) {
